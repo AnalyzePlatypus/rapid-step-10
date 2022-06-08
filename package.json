@@ -1,5 +1,5 @@
 {
-  "name": "michoelsamuels.com",
+  "name": "rapid-step-10",
   "version": "1.0.0",
   "description": "Parked personal website",
   "scripts": {
@@ -11,15 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/11ty/eleventy-base-blog.git"
+    "url": "git@github.com:AnalyzePlatypus/rapid-step-10.git"
   },
   "author": {
     "name": "Michoel Samuels",
-    "email": "michoel@hey.com",
-    "url": "https://michoelsamuels.com/"
+    "email": "michoel@hey.com"
   },
   "license": "MIT",
-  "homepage": "https://github.com/11ty/eleventy-base-blog#readme",
+  "homepage": "https://github.com/AnalyzePlatypus/rapid-step-10",
   "dependencies": {
     "@11ty/eleventy": "^1.0.1",
     "@11ty/eleventy-navigation": "^0.3.2",

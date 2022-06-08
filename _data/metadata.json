@@ -1,21 +1,6 @@
 {
-  "title": "MichoelSamuels.com",
-  "url": "https://michoelsamuels.com/",
+  "title": "Rapid Step 10",
+  "url": "rapidstep10.com",
   "language": "en",
-  "description": "Parked domain",
-  "feed": {
-    "subtitle": "Parked domain",
-    "filename": "feed.xml",
-    "path": "/feed/feed.xml",
-    "id": "https://michoelsamuels.com/"
-  },
-  "jsonfeed": {
-    "path": "/feed/feed.json",
-    "url": "https://michoelsamuels.com/feed/feed.json"
-  },
-  "author": {
-    "name": "Michoel Samuels",
-    "email": "michoel@hey.com",
-    "url": "https://michoelsamuels.com/"
-  }
+  "description": "Rapid Step"
 }

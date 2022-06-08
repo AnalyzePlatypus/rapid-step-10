@@ -5,10 +5,113 @@
 
 /* Colors */
 :root {
-  --lightgray: #e0e0e0;
-  --gray: #C0C0C0;
-  --darkgray: #333;
-  --navy: #17050F;
-  --blue: #082840;
-  --white: #fff;
+
+}
+
+.icon-10xl {
+  height: 8rem;
+}
+
+.icon-9xl {
+  height: 7rem;
+}
+
+.icon-8xl {
+  height: 6rem;
+}
+
+.icon-7xl {
+  height: 5rem;
+}
+
+.icon-6xl {
+  height: 4.5rem;
+}
+
+.icon-5xl {
+  height: 3.25rem;
+}
+
+.icon-4xl {
+  height: 2.75rem;
+}
+
+.icon-3xl {
+  height: 2.25rem;
+}
+
+.icon-2xl {
+  height: 2rem;
+}
+
+.icon-xl {
+  height: 1.75rem;
+}
+
+.icon-lg {
+  height: 1.7rem;
+}
+
+.icon-md {
+  height: 1.5rem;
+}
+
+.icon-sm {
+  height: 1.2rem;
+}
+
+.icon-xs {
+  height: 1rem;
+}
+
+
+.form-group {
+  @apply flex flex-col mb-16;
+}
+
+.form-group h2 {
+  @apply text-lg font-bold text-slate-900;
+}
+
+
+.form-group input,
+.form-group textarea {
+  @apply bg-slate-50 bg-opacity-40 border border-slate-200 rounded-lg p-2 shadow-inner focus:ring-2 focus:ring-blue-400;
+}
+
+
+.form-group .hint {
+  @apply text-sm text-slate-500 mb-2;
+}
+
+.card-option {
+  @apply flex items-center text-slate-800 bg-white px-3 py-2 border-b-2 border-slate-50 rounded-lg text-left transition-all hover:bg-slate-50 hover:text-black;
+}
+
+.card-option.selected {
+  @apply text-blue-500 hover:text-blue-600;
+}
+
+.defect-chip {
+  @apply transition-all px-3 py-1 rounded-full bg-blue-100 mr-1 mb-2 text-blue-900  hover:bg-blue-200;
+}
+
+.defect-chip.selected {
+  @apply bg-blue-500 text-white hover:bg-blue-600;
+}
+
+.inventory-type-picker {
+  @apply flex flex-wrap;
+}
+
+.inventory-type-picker button {
+  @apply bg-slate-100 rounded-lg px-6 py-6 text-slate-900 font-semibold mr-2 mb-2;
+}
+
+.selection-panel {
+  @apply  text-sm rounded-lg p-2 text-blue-800 font-semibold  border bg-slate-100 hover:bg-slate-200 w-full text-center focus:ring-2 ring-blue-700 cursor-pointer;
+}
+
+.selection-panel.selected {
+  @apply bg-blue-500 text-white cursor-default;
 }

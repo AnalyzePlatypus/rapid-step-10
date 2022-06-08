@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class='bg-slate-100 h-full min-h-screen'>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +8,21 @@
     <meta name="generator" content="{{ eleventy.generator }}">
 
     <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
-    <link rel="stylesheet" href="{{ '/css/tailwind.css' | url }}">
 
     <link rel="stylesheet" href="{{ '/css/prism-base16-monokai.dark.css' | url }}">
     <link rel="stylesheet" href="{{ '/css/prism-diff.css' | url }}">
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
     <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
+
+    <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
+
+    <style>
+      /* Hide Alpine templates until library loads and boots up */
+      [x-cloak] { display: none !important; }
+    </style>
   </head>
   <body>
     {# <header>
@@ -32,14 +41,7 @@
 
     <footer>
       <!-- Global site tag (gtag.js) - Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-QTC5PDPXEG"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-QTC5PDPXEG');
-      </script>
+     
     </footer>
 
     <!-- Current page: {{ page.url | url }} -->
