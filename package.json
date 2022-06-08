@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Parked personal website",
   "scripts": {
-    "build": "npx @11ty/eleventy && npx tailwindcss -o _site/css/index.css --minify",
+    "build": "npx @11ty/eleventy && npx tailwindcss -o _site/css/index.css",
     "bench": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
     "serve": "npx @11ty/eleventy --serve",
     "tailwind": "npx tailwindcss -i ./css/index.css -o ./_site/css/index.css --watch",
