@@ -5,16 +5,16 @@ eleventyNavigation:
   order: 1
 ---
 
-<section class='h-full bg-slate-100 flex flex-col items-center'>
+<section class='h-full bg-blue-50 flex flex-col items-center'>
   <div class='px-3 mb-2'>
 
     <h1 class='pt-4 sm:pt-8 px-8 text-slate-900 text-center text-3xl sm:text-4xl font-semibold mb-2'>Rapid Step 10</h1>
-    <p class='text-slate-400 sm:text-xl text-center leading-tight mb-2'>A&nbsp;complete&nbsp;Step&nbsp;10 spot check inventory.<br>In&nbsp;under&nbsp;three&nbsp;minutes.</p>
+    <p class='text-slate-500 sm:text-xl text-center leading-tight mb-2'>A&nbsp;complete&nbsp;Step&nbsp;10 spot check inventory.<br>In&nbsp;under&nbsp;three&nbsp;minutes.</p>
 
   </div>
 
-    <p class='mb-2 sm:mb-4 mx-3 bg-slate-200 text-slate-500 text-xs font-semibold font-mono py-1 pl-2 px-3 rounded-lg flex items-center justify-center'>
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class='mr-1' style='min-width:16px;' viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="40" y1="120" x2="216" y2="120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="40" y1="152" x2="216" y2="152" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="40" y1="184" x2="216" y2="184" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><rect x="40" y="88" width="176" height="128" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></rect><path d="M92,88V52a36,36,0,0,1,72,0V88" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path></svg>
+    <p class='mb-2 sm:mb-4 mx-3 bg-blue-100 text-slate-900 opacity-60 text-xs font-semibold font-mono py-2 pl-2 px-3 rounded-lg flex items-center justify-center'>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class='mr-1.5' style='min-width:16px;' viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="40" y1="120" x2="216" y2="120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="40" y1="152" x2="216" y2="152" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="40" y1="184" x2="216" y2="184" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><rect x="40" y="88" width="176" height="128" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></rect><path d="M92,88V52a36,36,0,0,1,72,0V88" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path></svg>
       Your details are secure and never leave your browser.
     </p>
 
@@ -303,7 +303,7 @@ eleventyNavigation:
 
 
           joinStringArray(arr) {
-            const preparedArray = uniq(arr.map(s => s.toLowerCase().replace('god', 'God'.replace('higher power','Higher Power')) )).sort()
+            const preparedArray = uniq(arr.filter(isDefined).map(s => s.toLowerCase().replace('god', 'God'.replace('higher power','Higher Power')) )).sort().filter(str => str.length > 0)
             return this.addAndToLastArrayItem(preparedArray).join(', ');
           },
 

@@ -85,7 +85,7 @@
 }
 
 .card-option {
-  @apply flex items-center text-slate-800 bg-white px-3 py-2 border-b-2 border-slate-50 rounded-lg text-left transition-all hover:bg-slate-50 hover:text-black;
+  @apply flex items-center text-slate-800 bg-white px-3 py-2 border-b-2 border-slate-100 rounded-lg text-left transition-all hover:bg-slate-50 hover:text-black;
 }
 
 .card-option.selected {
