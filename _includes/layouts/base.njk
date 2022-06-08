@@ -7,10 +7,24 @@
     <meta name="description" content="{{ description or metadata.description }}">
     <meta name="generator" content="{{ eleventy.generator }}">
 
-    <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+ 
+    <!-- Open Graph / Facebook -->  
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url or metadata.url }}">
+    <meta property="og:title" content="{{ title or metadata.title }}">
+    <meta property="og:description" content="{{ description or metadata.description }}">
+    <meta property="og:image" content="open-graph-banner.jpg">
+    
+    <!-- Twitter -->  
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url or metadata.url }}">
+    <meta property="twitter:title" content="{{ title or metadata.title }}">
+    <meta property="twitter:description" content="{{ description or metadata.description }}">
+    <meta property="twitter:image" content="open-graph-banner.jpg">
 
-    <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
-    <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
+
+    <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
 
     <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
