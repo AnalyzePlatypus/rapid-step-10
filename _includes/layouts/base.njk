@@ -14,14 +14,14 @@
     <meta property="og:url" content="{{ url or metadata.url }}">
     <meta property="og:title" content="{{ title or metadata.title }}">
     <meta property="og:description" content="{{ description or metadata.description }}">
-    <meta property="og:image" content="open-graph-banner.jpg">
+    <meta property="og:image" content="{{ url or metadata.url }}/open-graph-banner.jpg">
     
     <!-- Twitter -->  
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ url or metadata.url }}">
     <meta property="twitter:title" content="{{ title or metadata.title }}">
     <meta property="twitter:description" content="{{ description or metadata.description }}">
-    <meta property="twitter:image" content="open-graph-banner.jpg">
+    <meta property="twitter:image" content="{{ url or metadata.url }}/open-graph-banner.jpg">
 
 
     <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
