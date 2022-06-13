@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class='bg-slate-100 h-full min-h-screen'>
+<html lang="en" class='bg-slate-100 dark:bg-slate-900 h-full min-h-screen'>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,12 +27,28 @@
 
     <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
 
+    <!-- Honeybadger error monitoring -->
+    <script src="//js.honeybadger.io/v3.2/honeybadger.min.js" type="text/javascript"></script>
+ 
+    <script type="text/javascript">
+      Honeybadger.configure({
+        apiKey: 'hbp_vB747sDA7gxOqDRINd6YpAYdf11L470FN11m',
+        environment: 'production'
+      });
+    </script>
+
+
     <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@marcreichel/alpine-autosize@latest/dist/alpine-autosize.min.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <script defer src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/script.js" data-site="YGRAOWPW" defer></script>
+  
+
 
     <style>
       /* Hide Alpine templates until library loads and boots up */

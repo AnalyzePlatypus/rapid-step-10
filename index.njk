@@ -5,11 +5,14 @@ eleventyNavigation:
   order: 1
 ---
 
-<section class='h-full bg-blue-50 flex flex-col items-center'>
+<section class='h-full bg-blue-50 dark:bg-slate-900 dark:text-white flex flex-col items-center'>
   <div class='px-3 mb-2'>
 
-    <h1 class='pt-4 sm:pt-8 px-8 text-slate-900 text-center text-3xl sm:text-4xl font-semibold mb-2'>Rapid Step 10</h1>
-    <p class='text-slate-500 sm:text-xl text-center leading-tight mb-2'>A&nbsp;complete&nbsp;Step&nbsp;10 spot check inventory.<br>In&nbsp;under&nbsp;three&nbsp;minutes.</p>
+    <h1 class='pt-4 sm:pt-8 px-8 text-slate-900 dark:text-slate-100 text-center text-3xl sm:text-4xl font-semibold mb-2'>Rapid Step 10</h1>
+    <p class='text-slate-500 dark:text-slate-400 sm:text-xl text-center leading-tight mb-2'>A&nbsp;complete&nbsp;Step&nbsp;10 spot check inventory.<br>In&nbsp;under&nbsp;three&nbsp;minutes.
+      <br>
+      <span class='text-sm'>(Based on AA p. 84)</span>
+    </p>
 
   </div>
 
@@ -205,8 +208,40 @@ eleventyNavigation:
         asset: 'Financial responsibility'
       },
       {
-        defect: 'Miserliness',
+        defect: 'Stingy',
         asset: 'Generousity'
+      },
+       {
+        defect: 'Unwilling to ask for help',
+        asset: 'Willing to ask for help'
+      },
+      {
+        defect: 'Shame',
+        asset: 'Freedom from Shame'
+      },
+       {
+        defect: 'Fear of disapproval',
+        asset: 'Courage to do the right thing'
+      },
+      {
+        defect: 'Undisciplined',
+        asset: 'Disciplined'
+      },
+      {
+        defect: 'Indifference',
+        asset: 'Caring'
+      },
+      {
+        defect: 'Hatred',
+        asset: 'Loving'
+      },
+      {
+        defect: 'Mind reading',
+        asset: 'Staying on "my side of the street"'
+      },
+      {
+        defect: 'Uncommunicative',
+        asset: 'Communicative'
       },
 
     ].map(pair => { 
@@ -246,6 +281,7 @@ eleventyNavigation:
           otherAssets:  this.$persist(''),
           hasAmends:  this.$persist(false),
           amendsDetails:  this.$persist(''),
+          helpDetails: this.$persist(''),
 
           resetButtonArmed: false,
           copyTextSucceeded: false,
@@ -278,7 +314,7 @@ eleventyNavigation:
           },
 
           get hasSelectedDefects() {
-            return Object.keys(this.selectedDefectAssetPairs).length !== 0;
+            return Object.keys(this.selectedDefectAssetPairs).length !== 0 || this.otherDefects.length > 0;
           },
 
 
@@ -303,7 +339,15 @@ eleventyNavigation:
 
 
           joinStringArray(arr) {
-            const preparedArray = uniq(arr.filter(isDefined).map(s => s.toLowerCase().replace('god', 'God'.replace('higher power','Higher Power')) )).sort().filter(str => str.length > 0)
+            const preparedArray = uniq(
+              arr.
+              map(s => {
+                if(typeof s !== 'string') return;
+                  return s.toLowerCase().trim().replace('god', 'God'.replace('higher power','Higher Power'))
+                }).
+              filter(isDefined)
+            ).sort().
+              filter(str => str.length > 0)
             return this.addAndToLastArrayItem(preparedArray).join(', ');
           },
 
@@ -324,7 +368,7 @@ eleventyNavigation:
           // Clipboard
 
           get clipboardText() {
-            return `Step 10 Inventory\n${this.timestamp.toLocaleDateString()} ${this.timestamp.toLocaleTimeString()}\n\nWho?\n${this.who}\n\nWhat happened?\n${this.what}\n\nAffects my:\n${this.affectsMyString}\n\nMy defects:\n${this.defectString}\n\nCorresponding assets:\n${this.assetString}\n\n• Said the 7th Step prayer\n• ${this.hasAmends == 'yes' ? 'Requires amends\n' + this.amendsDetails : 'No amends needed'}\n• Need to share \n\nInventory complete!\n\n'Grant me strength, as I go out from here, to thy bidding, Amen!'`
+            return `Step 10 Inventory\n${this.timestamp.toLocaleDateString()} ${this.timestamp.toLocaleTimeString()}\n\nWho?\n${this.who}\n\nWhat happened?\n${this.what}\n\nAffects my:\n${this.affectsMyString}\n\nMy defects:\n${this.defectString}\n\nCorresponding assets:\n${this.assetString}\n\n• Said the 7th Step prayer\n• ${this.hasAmends == 'yes' ? 'Requires amends\n' + this.amendsDetails : 'No amends needed'}\n• Need to share\n•I can help: ${this.helpDetails}\n\nInventory complete!\n\n'Grant me strength, as I go out from here, to thy bidding, Amen!'`
           },
 
           setCopyTextSucceeded() {
@@ -387,7 +431,7 @@ eleventyNavigation:
     x-cloak
     @clipboard-success.window='setCopyTextSucceeded()'
     @clipboard-error.window='setCopyTextFailed()'
-    class='bg-white shadow-lg p-4 sm:p-8 sm:pb-0 rounded-lg m-3 sm:m-4 max-w-xl'>
+    class='bg-white  dark:bg-slate-800 shadow-lg p-4 sm:p-8 sm:pb-0 rounded-lg m-3 sm:m-4 max-w-xl'>
 <!-- 
     <div class='inventory-type-picker'>
       <button type='button'>Resentment</button>
@@ -400,7 +444,7 @@ eleventyNavigation:
     <div class='form-group'>
       <h2>1. Who?</h2>
       <p class='hint'>Who are you upset at? (a person, situation, yourself, God, etc.)</p>
-      <input x-model='who' type="text" name="who-field" id="who-field">
+      <textarea x-autosize x-model='who' type="text" name="who-field" id="who-field" rows="1"></textarea>
     </div>
 
      <div class='form-group'>
@@ -415,7 +459,7 @@ eleventyNavigation:
       
       <template x-for="option in AFFECTS_MY__OPTIONS">
         <button type='button' class='card-option' @click='toggleAffectsMy(option.id)' :class='selectedAffectsMy[option.id] && "selected"'>
-          <svg xmlns="http://www.w3.org/2000/svg" class='icon-md mr-1 transition-all text-blue-500' :class='selectedAffectsMy[option.id] ? "opacity-100" : "opacity-0"' fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><polyline points="172 104 113.3 160 84 132" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></circle></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class='icon-md mr-1 transition-all text-blue-500 dark:text-blue-400' :class='selectedAffectsMy[option.id] ? "opacity-100" : "opacity-0"' fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><polyline points="172 104 113.3 160 84 132" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></circle></svg>
           <span class='title' x-text='option.name'>Pride</span>
           <!-- <span class='description'>(how I think others think of me)</span> -->
         </button>
@@ -432,7 +476,7 @@ eleventyNavigation:
           <button 
             type='button'
             :id='"defect--" + option.id'
-            class='defect-chip'
+            class='defect-chip dark:bg-opacity-40'
             x-text='option.defect'
             :class='selectedDefectAssetPairIds[option.id] && "selected"'
              @click='toggleDefectAssetPair(option.id)' 
@@ -440,7 +484,7 @@ eleventyNavigation:
           </button>
         </template>
       </div>
-      <input x-model='otherDefects' type="text" name="custom-defects" id="custom-defects" placeholder='Other defects...'>
+      <textarea x-autosize x-model='otherDefects' type="text" name="custom-defects" id="custom-defects" placeholder='Other defects...' rows='1'></textarea>
       
 
     </div>
@@ -462,7 +506,7 @@ eleventyNavigation:
           </button>
         </template>
       </div>
-      <input x-model='otherAssets' type="text" name="custom-assets" id="custom-assets" placeholder='Other assets...'>
+      <textarea x-autosize x-model='otherAssets' type="text" name="custom-assets" id="custom-assets" placeholder='Other assets...' rows='1'></textarea>
 
     </div>
 
@@ -478,7 +522,8 @@ eleventyNavigation:
         <p class='font-serif text-7xl mr-3 text-slate-300'>"</p>
         <div class='italic mt-1' >
           <p class=''><span class='font-bold'>My Creator</span>, I'm now willing that you have all of me, good and bad.</p>
-
+          <p>I pray that you now remove from me every single defect of character which stands in the way of my usefulness to you and my fellows. </p>
+          <p class='font-bold mt-2'>In particular,</p>
           
           <p class='mt-4'>Please take away my: </br>
           <span class='font-bold' x-text='defectString'>selfishness, dishonesty, fear, jealousy and judgementalism,</span>
@@ -509,8 +554,8 @@ eleventyNavigation:
         
       </div>
 
-      <div x-collapse x-show='hasAmends == "yes"'>
-        <p class='mb-1 font-semibold text-slate-700 mt-2'>Amends to make</p>
+      <div x-collapse x-show='hasAmends == "yes"' class='mt-2'>
+        <p class='mb-1 font-semibold text-slate-700 dark:text-slate-300 mt-2'>Amends to make</p>
         <textarea x-autosize x-model='amendsDetails' name="amend-details" id="amend-details" cols="30" rows="1" class='w-full'></textarea>
       </div>
      
@@ -521,8 +566,17 @@ eleventyNavigation:
       <p class='hint'>
         Remember to share your inventory with someone!
       </p>
-     
     </div>
+
+    <div class='form-group'>
+      <h2 class=''>9. Who can you help now?</h2>
+       <p class='hint mb-1'>Someone who's struggling, a family member, friend, or anyone you can help or pray for.</p>
+      <textarea x-autosize x-model='helpDetails' name="help-details" id="help-details" cols="30" rows="1" class='w-full'></textarea>
+       <p class='hint italic mt-2'>
+        "Then we resolutely turn our thoughts to someone we can help.<br>Love and tolerance of others is our code."<br>(AA p.84)
+      </p>
+    </div>
+
 
     <div class='form-group'>
       <h2>9. Done!</h2>
@@ -537,7 +591,7 @@ eleventyNavigation:
         :class='{
           "from-green-600 to-green-700": !copyTextFailed && copyTextSucceeded, 
           "from-red-600 to-red-700": copyTextFailed, 
-          "from-blue-500 to-blue-600": !copyTextFailed && !copyTextSucceeded }'
+          "from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-800": !copyTextFailed && !copyTextSucceeded }'
         :data-clipboard-text='clipboardText'>
         <span x-show='copyTextFailed'>Copy error</span>
         <span x-show='!copyTextFailed && copyTextSucceeded'>Copied!</span>
@@ -548,7 +602,7 @@ eleventyNavigation:
           @click='resetButtonClicked()'
           type="button"
           class='text-sm transition-all py-2 rounded-lg mt-4 font-semibold'
-          :class='resetButtonArmed ? "text-white bg-red-500 hover:bg-red-600" : "text-blue-900 bg-slate-100 hover:bg-slate-200"'>
+          :class='resetButtonArmed ? "text-white bg-red-500 hover:bg-red-600" : "text-blue-900 bg-slate-100 dark:text-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 hover:bg-slate-200"'>
          <span x-show='!resetButtonArmed'>Clear form and start over</span>
          <span x-show='resetButtonArmed'>Are you sure?</span>
       </button>

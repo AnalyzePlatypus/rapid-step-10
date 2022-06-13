@@ -70,34 +70,34 @@
 }
 
 .form-group h2 {
-  @apply text-lg font-bold text-slate-900;
+  @apply text-lg font-bold text-slate-900 dark:text-slate-200;
 }
 
 
 .form-group input,
 .form-group textarea {
-  @apply bg-slate-50 bg-opacity-60 border border-slate-200 rounded-lg p-2 shadow-inner focus:ring-2 focus:ring-blue-400 ring-offset-2;
+  @apply bg-slate-50 dark:bg-slate-700 bg-opacity-60 dark:bg-opacity-100 border border-slate-300 dark:border-slate-500 rounded-lg p-2 shadow-inner focus:ring-2 focus:ring-blue-400 ring-offset-2;
 }
 
 
 .form-group .hint {
-  @apply text-sm text-slate-500 mb-2;
+  @apply text-sm text-slate-500 mb-2 dark:text-slate-300;
 }
 
 .card-option {
-  @apply flex items-center text-slate-800 bg-white px-3 py-2 border-b-2 border-slate-100 rounded-lg text-left transition-all hover:bg-slate-50 hover:text-black;
+  @apply flex items-center text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-800 px-3 py-2 border-b-2 border-slate-100 dark:border-slate-800 rounded-lg text-left transition-all hover:bg-slate-50 hover:text-black dark:hover:bg-slate-700 dark:hover:text-slate-100;
 }
 
 .card-option.selected {
-  @apply text-blue-500 hover:text-blue-600;
+  @apply text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300;
 }
 
 .defect-chip {
-  @apply transition-all px-3 py-1 rounded-full bg-blue-100 mr-1 mb-2 text-blue-900  hover:bg-blue-200;
+  @apply transition-all px-3 py-1 rounded-full dark:bg-opacity-40 bg-blue-100 dark:bg-blue-900 dark:text-blue-300  mr-1 mb-2 text-blue-900  hover:bg-blue-200 dark:hover:bg-blue-800;
 }
 
 .defect-chip.selected {
-  @apply bg-blue-500 text-white hover:bg-blue-600;
+  @apply bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 bg-opacity-100;
 }
 
 .inventory-type-picker {
@@ -109,9 +109,9 @@
 }
 
 .selection-panel {
-  @apply  text-sm rounded-lg p-2 text-blue-800 font-semibold  border bg-slate-100 hover:bg-slate-200 w-full text-center focus:ring-2 ring-blue-700 cursor-pointer;
+  @apply  text-sm rounded-lg p-2 text-blue-800 font-semibold  border bg-slate-100 hover:bg-slate-200 dark:text-slate-200 dark:bg-slate-600 dark:border-slate-500 hover:dark:bg-slate-500 w-full text-center focus:ring-2 ring-blue-700 cursor-pointer;
 }
 
 .selection-panel.selected {
-  @apply bg-blue-500 text-white cursor-default;
+  @apply bg-blue-500 text-white dark:bg-blue-700 dark:border-blue-700 cursor-default;
 }
