@@ -368,7 +368,7 @@ eleventyNavigation:
           // Clipboard
 
           get clipboardText() {
-            return `Step 10 Inventory\n${this.timestamp.toLocaleDateString()} ${this.timestamp.toLocaleTimeString()}\n\nWho?\n${this.who}\n\nWhat happened?\n${this.what}\n\nAffects my:\n${this.affectsMyString}\n\nMy defects:\n${this.defectString}\n\nCorresponding assets:\n${this.assetString}\n\n• Said the 7th Step prayer\n• ${this.hasAmends == 'yes' ? 'Requires amends\n' + this.amendsDetails : 'No amends needed'}\n• Need to share\n•I can help: ${this.helpDetails}\n\nInventory complete!\n\n'Grant me strength, as I go out from here, to thy bidding, Amen!'`
+            return `Step 10 Inventory\n${this.timestamp.toLocaleDateString()} ${this.timestamp.toLocaleTimeString()}\n\nWho?\n${this.who}\n\nWhat happened?\n${this.what}\n\nAffects my:\n${this.affectsMyString}\n\nMy defects:\n${this.defectString}\n\nCorresponding assets:\n${this.assetString}\n\n• Said the 7th Step prayer\n• ${this.hasAmends == 'yes' ? 'Requires amends\n' + this.amendsDetails : 'No amends needed'}\n• Need to share\n• I can help: ${this.helpDetails}\n\nInventory complete!\n\n'Grant me strength, as I go out from here, to do thy bidding, Amen!'`
           },
 
           setCopyTextSucceeded() {
