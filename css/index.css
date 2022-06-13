@@ -76,7 +76,7 @@
 
 .form-group input,
 .form-group textarea {
-  @apply bg-slate-50 dark:bg-slate-700 bg-opacity-60 dark:bg-opacity-100 border border-slate-300 dark:border-slate-500 rounded-lg p-2 shadow-inner focus:ring-2 focus:ring-blue-400 ring-offset-2;
+  @apply transition-all cursor-pointer bg-slate-50 dark:bg-slate-700 bg-opacity-60 dark:bg-opacity-100 border border-slate-300 dark:border-slate-500 rounded-lg p-2 shadow-inner focus:ring-2 focus:ring-blue-400 ring-offset-2 dark:hover:bg-blue-800 dark:hover:border-blue-700 dark:hover:bg-opacity-20;
 }
 
 
@@ -93,11 +93,11 @@
 }
 
 .defect-chip {
-  @apply transition-all px-3 py-1 rounded-full dark:bg-opacity-40 bg-blue-100 dark:bg-blue-900 dark:text-blue-300  mr-1 mb-2 text-blue-900  hover:bg-blue-200 dark:hover:bg-blue-800;
+  @apply transition-all px-3 shadow-sm py-1 rounded-full dark:bg-opacity-40 bg-blue-100 dark:bg-blue-900 dark:text-blue-300  mr-1 mb-2 text-blue-900  hover:bg-blue-200 dark:hover:bg-blue-800;
 }
 
 .defect-chip.selected {
-  @apply bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 bg-opacity-100;
+  @apply bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 bg-opacity-100 shadow-md;
 }
 
 .inventory-type-picker {
