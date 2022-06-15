@@ -44,6 +44,7 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <script defer src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 
     <!-- Fathom - beautiful, simple website analytics -->
     <script src="https://save-tonight-good.rapidstep10.com/script.js" data-site="YGRAOWPW" defer></script>
@@ -51,7 +52,10 @@
 
     <style>
       /* Hide Alpine templates until library loads and boots up */
-      [x-cloak] { display: none !important; }
+      [x-cloak] {
+        visibility: hidden;
+        overflow: hidden 
+      }
     </style>
   </head>
   <body>

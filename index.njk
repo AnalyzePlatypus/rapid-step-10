@@ -101,7 +101,7 @@ eleventyNavigation:
       },
       {
         defect: 'Comparing myself to others',
-        asset: 'Comparing myself to my past self'
+        asset: 'Valuing myself as God\'s child'
       },
       {
         defect: 'Low Self Esteem',
@@ -121,7 +121,7 @@ eleventyNavigation:
       },
       {
         defect: 'Self-pity',
-        asset: 'Acceptance, Gratitude'
+        asset: 'Gratitude'
       },
       {
         defect: 'Arrogance',
@@ -169,7 +169,7 @@ eleventyNavigation:
       },
       {
         defect: 'Despair',
-        asset: 'Acceptance'
+        asset: 'Hopeful'
       },
       {
         defect: 'Unhealthy eating',
@@ -286,6 +286,9 @@ eleventyNavigation:
           resetButtonArmed: false,
           copyTextSucceeded: false,
           copyTextFailed: false,
+
+          defectListIsExpanded: false,
+          assetListIsExpanded: false,
           
 
           toggleAffectsMy(id) {
@@ -303,6 +306,15 @@ eleventyNavigation:
 
           findDefectAssetPairById(id) {
             return this.DEFECTS_AND_ASSET_PAIRS.find(p => p.id == id)
+          },
+
+
+          toggleDefectExpansionState() {
+            this.defectListIsExpanded = !this.defectListIsExpanded;
+          },
+
+          toggleAssetExpansionState() {
+            this.assetListIsExpanded = !this.assetListIsExpanded;
           },
 
         
@@ -343,7 +355,7 @@ eleventyNavigation:
               arr.
               map(s => {
                 if(typeof s !== 'string') return;
-                  return s.toLowerCase().trim().replace('god', 'God'.replace('higher power','Higher Power'))
+                  return s.toLowerCase().trim().replace('god', 'God').replace('higher power','Higher Power')
                 }).
               filter(isDefined)
             ).sort().
@@ -374,6 +386,7 @@ eleventyNavigation:
           setCopyTextSucceeded() {
             this.copyTextSucceeded = true;
             setTimeout(() => this.resetCopyTextStatusMessage(), 3000);
+            window.launchConfetti();
           },
 
           setCopyTextFailed() {
@@ -420,6 +433,12 @@ eleventyNavigation:
             this.amendsDetails = '';
             this.resetButtonArmed = false
             this.helpDetails = '';
+
+            this.fathomTrackGoal('0QRQEOZZ', 0);
+          },
+
+          fathomTrackGoal(id, value) {
+            window.fathom && window.fathom.trackGoal(id, value);
           }
         } // end Alpine data object
       }) // end Alpine init function
@@ -473,8 +492,12 @@ eleventyNavigation:
       <p class='hint'>Select as many character defects as you can!</p>
       
       
-      <div class='mt-3 flex flex-wrap'>
-        <template x-for="option in DEFECTS_AND_ASSET_PAIRS">
+      <div x-collapse.min.90px x-show='defectListIsExpanded' class='mt-3 flex flex-wrap'>
+        <template x-for="option in DEFECTS_AND_ASSET_PAIRS.sort(({defect: a},{defect: b}) => {
+          if(a > b) return 1;
+          if(a < b) return -1;
+          return 0;
+        })">
           <button 
             type='button'
             :id='"defect--" + option.id'
@@ -485,18 +508,43 @@ eleventyNavigation:
             >
           </button>
         </template>
+
+        <textarea x-autosize x-model='otherDefects' class='w-full mb-4' type="text" name="custom-defects" id="custom-defects" placeholder='Other defects...' rows='1'></textarea>
       </div>
-      <textarea x-autosize x-model='otherDefects' type="text" name="custom-defects" id="custom-defects" placeholder='Other defects...' rows='1'></textarea>
+
+
+      <div class='w-full flex flex-col items-center relative mb-4'>
+
+        <div class='z-0 w-full absolute border-t border-slate-300 dark:border-slate-700' :class='{"mt-4": defectListIsExpanded}'></div>
+
+        <button type='button' class='button pr-6 pl-3 z-10' :class='{"mt-4": !defectListIsExpanded}' @click='toggleDefectExpansionState()'>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class='icon-sm mr-1 transform transition-all rotate-180' :class='{"rotate-0": defectListIsExpanded}' fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><polyline points="48 160 128 80 208 160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline></svg>
+          
+          <span class='whitespace-nowrap'>
+            Show&nbsp;
+            <span x-show='!defectListIsExpanded'>more</span>
+            <span x-show='defectListIsExpanded'>less</span>
+          </span>
+
+        </button>
+      </div>
+
+      
       
 
     </div>
 
     <div class='form-group'>
       <h2>5. Character Assets</h2>
-      <p class='hint'>Select as many as you can!</p>
+      <p class='hint'>Select the opposites of your defects!</p>
       
-      <div class='mt-3 flex flex-wrap'>
-       <template x-for="option in DEFECTS_AND_ASSET_PAIRS">
+      <div class='mt-3 flex flex-wrap' x-collapse.min.90px x-show='assetListIsExpanded'>
+       <template x-for="option in DEFECTS_AND_ASSET_PAIRS.sort(({asset: a},{asset: b}) => {
+          if(a > b) return 1;
+          if(a < b) return -1;
+          return 0;
+        })">
           <button 
             type='button'
             :id='"asset--" + option.id'
@@ -507,14 +555,32 @@ eleventyNavigation:
             >
           </button>
         </template>
+
+        <textarea x-autosize class='w-full' x-model='otherAssets' type="text" name="custom-assets" id="custom-assets" placeholder='Other assets...' rows='1'></textarea>
       </div>
-      <textarea x-autosize x-model='otherAssets' type="text" name="custom-assets" id="custom-assets" placeholder='Other assets...' rows='1'></textarea>
+
+        <div class='w-full flex flex-col items-center relative mb-4'>
+
+        <div class='z-0 w-full absolute border-t border-slate-300 dark:border-slate-700' :class='{"mt-4": assetListIsExpanded}'></div>
+
+        <button type='button' class='button pr-6 pl-3 z-10' :class='{"mt-4": !assetListIsExpanded}' @click='toggleAssetExpansionState()'>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" class='icon-sm mr-1 transform transition-all rotate-180' :class='{"rotate-0": assetListIsExpanded}' fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><polyline points="48 160 128 80 208 160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline></svg>
+          
+          <span class='whitespace-nowrap'>
+            Show&nbsp;
+            <span x-show='!assetListIsExpanded'>more</span>
+            <span x-show='assetListIsExpanded'>less</span>
+          </span>
+
+        </button>
+      </div>
 
     </div>
 
     <div class='form-group'>
       <h2>6. 7th-Step Prayer</h2>
-      <p class='hint'>Based on AA p. 73</p>
+      <p class='hint'>Based on AA p. 76</p>
 
       <div x-show='!hasSelectedDefects'>
         <p class='px-4 py-8 rounded-lg border-2 border-dashed border-slate-200 text-semibold text-xl text-slate-300 text-center'>Select some defects to generate your prayer!</p>
@@ -563,15 +629,9 @@ eleventyNavigation:
      
     </div>
 
-     <div class='form-group'>
-      <h2>8. Share</h2>
-      <p class='hint'>
-        Remember to share your inventory with someone!
-      </p>
-    </div>
 
     <div class='form-group'>
-      <h2 class=''>9. Who can you help now?</h2>
+      <h2 class=''>8. Who can you help now?</h2>
        <p class='hint mb-1'>Someone who's struggling, a family member, friend, or anyone you can help or pray for.</p>
       <textarea x-autosize x-model='helpDetails' name="help-details" id="help-details" cols="30" rows="1" class='w-full'></textarea>
        <p class='hint italic mt-2'>
@@ -579,9 +639,16 @@ eleventyNavigation:
       </p>
     </div>
 
+     <div class='form-group'>
+      <h2>9. Share</h2>
+      <p class='hint'>
+        Remember to share your inventory with someone!
+      </p>
+    </div>
+
 
     <div class='form-group'>
-      <h2>9. Done!</h2>
+      <h2>10. Done!</h2>
       <p class='hint'>
         Copy this inventory and paste it somewhere to save it for later, or clear it to start again.
       </p>
@@ -605,7 +672,6 @@ eleventyNavigation:
           @click='resetButtonClicked()'
           type="button"
           class='text-sm transition-all py-2 rounded-lg mt-4 font-semibold'
-          onclick="window.fathom && window.fathom.trackGoal('0QRQEOZZ', 0);"
           :class='resetButtonArmed ? "text-white bg-red-500 hover:bg-red-600" : "text-blue-900 bg-slate-100 dark:text-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 hover:bg-slate-200"'>
          <span x-show='!resetButtonArmed'>Clear form and start over</span>
          <span x-show='resetButtonArmed'>Are you sure?</span>
@@ -620,24 +686,59 @@ eleventyNavigation:
 
 <script>
    window.addEventListener('DOMContentLoaded', () => {
-  
-
-
      const copyToClipboardButtonId = '#copy-to-clipboard-button';
-     document.querySelector(copyToClipboardButtonId).classList.remove('hidden');
      var clipboard = new ClipboardJS(copyToClipboardButtonId);
+
+     document.querySelector(copyToClipboardButtonId).classList.remove('hidden');
 
      clipboard.on('success', function(e) {
        window.dispatchEvent(new CustomEvent('clipboard-success'));
-        //console.info('Action:', e.action);
-        //console.info('Text:', e.text);
-        //console.info('Trigger:', e.trigger);
     });
 
     clipboard.on('error', function(e) {
       window.dispatchEvent(new CustomEvent('clipboard-error'));
-      console.error('Action:', e.action);
-      console.error('Trigger:', e.trigger);
     });
+
+
    });
+</script>
+
+
+<script>
+  var count = 200;
+  var defaults = {
+    origin: { y: 0.7 }
+  };
+
+  function fire(particleRatio, opts) {
+    confetti(Object.assign({}, defaults, opts, {
+      particleCount: Math.floor(count * particleRatio)
+    }));
+  }
+
+  function launchConfetti() {
+    fire(0.25, {
+      spread: 26,
+      startVelocity: 55,
+    });
+    fire(0.2, {
+      spread: 60,
+    });
+    fire(0.35, {
+      spread: 100,
+      decay: 0.91,
+      scalar: 0.8
+    });
+    fire(0.1, {
+      spread: 120,
+      startVelocity: 25,
+      decay: 0.92,
+      scalar: 1.2
+    });
+    fire(0.1, {
+      spread: 120,
+      startVelocity: 45,
+    });
+  }
+
 </script>
