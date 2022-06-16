@@ -67,17 +67,18 @@
 
 
 .form-group {
-  @apply flex flex-col mb-12 sm:mb-16 last:mb-0;
+  @apply flex flex-col mb-12 sm:mb-16 last:mb-4;
 }
 
-.form-group h2 {
+.form-group h2,
+.form-group .h2 {
   @apply text-lg font-bold text-slate-900 dark:text-slate-200;
 }
 
 
 .form-group input,
 .form-group textarea {
-  @apply transition-all cursor-pointer bg-slate-50 dark:bg-slate-700 bg-opacity-60 dark:bg-opacity-100 border border-slate-300 dark:border-slate-500 rounded-lg p-2 shadow-inner focus:ring-2 focus:ring-blue-400 ring-offset-2 dark:hover:bg-blue-800 dark:hover:border-blue-700 dark:hover:bg-opacity-20;
+  @apply transition-all cursor-pointer bg-slate-50 dark:bg-slate-700 bg-opacity-60 dark:bg-opacity-100 border border-slate-300 dark:border-slate-500 rounded-lg p-2 shadow-inner focus:ring-2 focus:ring-blue-400 ring-offset-2 dark:hover:bg-blue-800 dark:hover:border-blue-700 dark:hover:bg-opacity-20 dark:focus:bg-blue-800 dark:focus:border-blue-700 dark:focus:bg-opacity-20;
 }
 
 

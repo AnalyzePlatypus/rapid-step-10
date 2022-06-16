@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class='bg-slate-100 dark:bg-slate-900 h-full min-h-screen'>
+<html lang="en" class='bg-blue-50 dark:bg-slate-900 h-full min-h-screen'>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,12 @@
 
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#eff6ff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#0f172a">
  
+    <link rel="manifest" href="/manifest.json">
+
     <!-- Open Graph / Facebook -->  
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url or metadata.url }}">

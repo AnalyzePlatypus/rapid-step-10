@@ -1,0 +1,22 @@
+{
+  "short_name": "Step 10",
+  "name": "Rapid Step 10",
+  "description": "3-minute Step 10 inventories",
+  "icons": [
+    {
+      "src": "/icon_192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/?source=pwa",
+  "background_color": "#3367D6",
+  "display": "minimal-ui",
+  "scope": "/",
+  "theme_color": "#2563eb"
+}

@@ -77,7 +77,7 @@ eleventyNavigation:
       },
       {
         defect: 'Need to Control',
-        asset: 'Letting Go'
+        asset: 'Letting Go of Control'
       },
       {
         defect: 'Judgemental',
@@ -228,7 +228,7 @@ eleventyNavigation:
         asset: 'Disciplined'
       },
       {
-        defect: 'Indifference',
+        defect: 'Indifferent',
         asset: 'Caring'
       },
       {
@@ -242,6 +242,38 @@ eleventyNavigation:
       {
         defect: 'Uncommunicative',
         asset: 'Communicative'
+      },
+       {
+        defect: 'Demanding that the world be my way',
+        asset: 'Accepting God\'s world as it is'
+      },
+      {
+        defect: 'Obsessive',
+        asset: 'Letting go'
+      },
+      {
+        defect: 'Staying in my Comfort Zone',
+        asset: 'Courage to try new things'
+      },
+       {
+        defect: 'Entitled',
+        asset: 'Accepting that I don\'t deserve everything'
+      },
+      {
+        defect: 'Looking down at others',
+        asset: 'Viewing all people as my equals'
+      },
+      {
+        defect: 'Snobby',
+        asset: 'Friendly'
+      },
+      {
+        defect: 'Unforgiving',
+        asset: 'Forgiving'
+      },
+      {
+        defect: 'Arguing',
+        asset: 'Peaceful'
       },
 
     ].map(pair => { 
@@ -418,11 +450,6 @@ eleventyNavigation:
           },
 
           resetForm() {
-             window.scrollTo({
-              top: 0,
-              left: 0,
-              behavior: 'smooth'
-            })
 
             this.timestamp = new Date(),
             this.who = '';
@@ -433,8 +460,22 @@ eleventyNavigation:
             this.otherAssets = '';
             this.hasAmends = '';
             this.amendsDetails = '';
-            this.resetButtonArmed = false
             this.helpDetails = '';
+
+            // Reset UI state
+            this.resetButtonArmed = false
+            this.defectListIsExpanded = false,
+            this.assetListIsExpanded = false,
+
+            // Scroll to top
+            // Timeout bypasses a UI glitch in Safari
+            setTimeout(() =>{
+              window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+              })
+            },30)
 
             this.fathomTrackGoal('0QRQEOZZ', 0);
           },
@@ -465,13 +506,13 @@ eleventyNavigation:
     </div> -->
 
     <div class='form-group'>
-      <h2>1. Who?</h2>
+      <label class='h2' for='who-field'>1. Who?</label>
       <p class='hint'>Who are you upset at? (a person, situation, yourself, God, etc.)</p>
       <textarea x-autosize x-model='who' type="text" name="who-field" id="who-field" rows="1"></textarea>
     </div>
 
      <div class='form-group'>
-      <h2 class='mb-0'>2. What happened?</h2>
+      <label class='h2 mb-0' for='what-field'>2. What happened?</label>
       <p class='hint'>19 words or less</p>
       <textarea x-autosize x-model='what' name="what-field" id="what-field" cols="30" rows="1"></textarea>
     </div>
@@ -625,7 +666,7 @@ eleventyNavigation:
       </div>
 
       <div x-collapse x-show='hasAmends == "yes"' class='mt-2'>
-        <p class='mb-1 font-semibold text-slate-700 dark:text-slate-300 mt-2'>Amends to make</p>
+        <label for='amend-details' class='block mb-1 font-semibold text-slate-700 dark:text-slate-300 mt-4'>Amends to make</label>
         <textarea x-autosize x-model='amendsDetails' name="amend-details" id="amend-details" cols="30" rows="1" class='w-full'></textarea>
       </div>
      
@@ -633,7 +674,7 @@ eleventyNavigation:
 
 
     <div class='form-group'>
-      <h2 class=''>8. Who can you help now?</h2>
+      <label for='help-details' class='h2'>8. Who can you help now?</label>
        <p class='hint mb-1'>Someone who's struggling, a family member, friend, or anyone you can help or pray for.</p>
       <textarea x-autosize x-model='helpDetails' name="help-details" id="help-details" cols="30" rows="1" class='w-full'></textarea>
        <p class='hint italic mt-2'>
