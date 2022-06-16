@@ -67,7 +67,7 @@
 
 
 .form-group {
-  @apply flex flex-col mb-16;
+  @apply flex flex-col mb-12 sm:mb-16 last:mb-0;
 }
 
 .form-group h2 {
@@ -82,7 +82,7 @@
 
 
 .form-group .hint {
-  @apply text-sm text-slate-500 mb-2 dark:text-slate-300;
+  @apply text-sm text-slate-500 mb-2 dark:text-slate-400;
 }
 
 .card-option {
