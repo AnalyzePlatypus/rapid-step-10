@@ -5,7 +5,8 @@ Based on _Alcoholics Anonymous_ p. 84.
 
 * 🚀 Fast: 100% Lighthouse performance score
 * 🔒 Private: No information leaves the browser
-* 🐘 Incomplete inventories are saved to local storage
+* 🌙 Light and dark themes (matches system settings)
+* 🐘 Incomplete inventories are saved to Local Storage
 * 📎 Copy to clipboard for sharing
 * 🎉 Celebrate with confetti!
 
@@ -18,7 +19,7 @@ Based on _Alcoholics Anonymous_ p. 84.
 - [x] Custom defects & assets
 - [x] Fathom analytics
 - [x] Confetti!
-- [] Offline support via Service Worker?
+- [ ] Offline support via Service Worker?
 
 
 ## Thank you
@@ -35,3 +36,5 @@ Built with:
 * Error Monitoring by [Honeybadger](http://honeybadger.io)
 * Privacy-respecting analytics by [Fathom](https://usefathom.com/ref/BDXYGB). (affiliate link! 😄)
 * Deployed to [Netlify](https://netlify.com)
+
+🤠 Dat's all, folks!
