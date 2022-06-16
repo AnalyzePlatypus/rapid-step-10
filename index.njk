@@ -310,10 +310,12 @@ eleventyNavigation:
 
 
           toggleDefectExpansionState() {
+            if(this.defectListIsExpanded) this.$refs.defectsHeader.scrollIntoView({block: "start", behavior:'auto'});
             this.defectListIsExpanded = !this.defectListIsExpanded;
           },
 
           toggleAssetExpansionState() {
+            if(this.assetListIsExpanded) this.$refs.assetsHeader.scrollIntoView({block: "start", behavior:'auto'});
             this.assetListIsExpanded = !this.assetListIsExpanded;
           },
 
@@ -488,7 +490,7 @@ eleventyNavigation:
     </div>
 
      <div class='form-group'>
-      <h2>4. My part</h2>
+      <h2 x-ref='defectsHeader' >4. My part</h2>
       <p class='hint'>Select as many character defects as you can!</p>
       
       
@@ -536,7 +538,7 @@ eleventyNavigation:
     </div>
 
     <div class='form-group'>
-      <h2>5. Character Assets</h2>
+      <h2 x-ref='assetsHeader'>5. Character Assets</h2>
       <p class='hint'>Select the opposites of your defects!</p>
       
       <div class='mt-3 flex flex-wrap' x-collapse.min.90px x-show='assetListIsExpanded'>
@@ -556,7 +558,7 @@ eleventyNavigation:
           </button>
         </template>
 
-        <textarea x-autosize class='w-full' x-model='otherAssets' type="text" name="custom-assets" id="custom-assets" placeholder='Other assets...' rows='1'></textarea>
+        <textarea x-autosize class='w-full mb-4' x-model='otherAssets' type="text" name="custom-assets" id="custom-assets" placeholder='Other assets...' rows='1'></textarea>
       </div>
 
         <div class='w-full flex flex-col items-center relative mb-4'>
