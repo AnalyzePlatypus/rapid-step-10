@@ -28,8 +28,8 @@ Thanks to all testers for feedback!
 The defect list is partly based on the work of Nicholas S in the UK.
 
 Built with:
-* Eleventy (Static site generator)
-* Tailwind CSS
+* [Eleventy](http://11ty.dev) (Static site generator)
+* [Tailwind CSS](http://tailwindcss.com)
 * [Alpine.js](https://alpinejs.dev) (with the [Persist](https://alpinejs.dev/plugins/persist), [Collapse](https://alpinejs.dev/plugins/collapse), and [Autosize](https://github.com/marcreichel/alpine-autosize) plugins)
 * Clipboard by [Clipboard.js](http://clipboardjs.com)
 * Confetti by [canvas-confetti](https://github.com/catdad/canvas-confetti)
