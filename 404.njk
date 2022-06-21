@@ -1,0 +1,27 @@
+---
+layout: layouts/home.njk
+permalink: 404.html
+eleventyExcludeFromCollections: true
+---
+
+<section class="text-center text-xl mt-6 rounded-lg border border-slate-300 dark:border-slate-500 p-12 bg-blue-100 dark:bg-slate-800 bg-opacity-75">
+  <h1 class="text-3xl mb-4 font-bold">Where'd it go?</h1>
+  <p class=''>We tried looking for:</p>
+  <code class='text-xl'>{{ page.url }}</code>
+  
+  <p class='mb-4'>But there was nothing there.</p>
+  <a href='mailto:michoel@hey.com?subject=Broken%20link%20report' class='block underline mb-6 text-blue-500 dark:text-blue-400  decoration-2 decoration-blue-500 dark:decoration-blue-400 hover:decoration-blue-600  dark:hover:decoration-blue-300'>Tell us about it ›</a>
+
+  <div class='flex flex-col items-center'>
+    <a href='/' class='bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600 transition-all  rounded-full text-white py-2 px-6 '>
+      ‹ Back to Home
+    </a>
+  </div>
+</section>
+
+<script>
+  // Automatically teport the 404 error
+  window.addEventListener('load', (event) => {
+    window.fathom && window.fathom.trackGoal('CQLZNTXN', 0);
+  });
+</script>

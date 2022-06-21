@@ -19,6 +19,9 @@ Based on _Alcoholics Anonymous_ p. 84.
 - [x] Custom defects & assets
 - [x] Fathom analytics
 - [x] Confetti!
+- [x] 404 page with auto-reporting
+- [x] No-JS banner
+- [x] Automatic asset download retries (powered by [assets-retry](https://www.npmjs.com/package/assets-retry))
 - [ ] Offline support via Service Worker?
 
 
@@ -33,6 +36,7 @@ Built with:
 * [Alpine.js](https://alpinejs.dev) (with the [Persist](https://alpinejs.dev/plugins/persist), [Collapse](https://alpinejs.dev/plugins/collapse), and [Autosize](https://github.com/marcreichel/alpine-autosize) plugins)
 * Clipboard by [Clipboard.js](http://clipboardjs.com)
 * Confetti by [canvas-confetti](https://github.com/catdad/canvas-confetti)
+* [assets-retry](https://www.npmjs.com/package/assets-retry) Web asset robust redownload script
 * Error Monitoring by [Honeybadger](http://honeybadger.io)
 * Privacy-respecting analytics by [Fathom](https://usefathom.com/ref/BDXYGB). (affiliate link! 😄)
 * Deployed to [Netlify](https://netlify.com)

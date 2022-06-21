@@ -95,11 +95,11 @@
 }
 
 .defect-chip {
-  @apply transition-all px-3 shadow-sm py-1 rounded-full dark:bg-opacity-40 bg-blue-100 dark:bg-blue-900 dark:text-blue-300  mr-1 mb-2 text-blue-900  hover:bg-blue-200 dark:hover:bg-blue-800;
+  @apply transition-all px-3 shadow-sm py-1 rounded-full dark:bg-opacity-40 shadow-blue-400/50 dark:shadow-blue-900/70 bg-blue-100 dark:bg-blue-900 dark:text-blue-300  mr-1 mb-2 text-blue-900  hover:bg-blue-200 dark:hover:bg-blue-800;
 }
 
 .defect-chip.selected {
-  @apply bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 bg-opacity-100 shadow-md;
+  @apply bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 bg-opacity-100 shadow-md shadow-blue-600/30 dark:shadow-blue-900/60;
 }
 
 .inventory-type-picker {
