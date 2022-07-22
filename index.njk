@@ -45,7 +45,7 @@ eleventyNavigation:
         name: 'Sex relations',
         definition: 'drive for sexual intimacy'
       }
-    ].map(pair => { 
+    ].map(pair => {
       return {
         ...pair,
         id: encodeURIComponent(pair.name.toLowerCase())
@@ -294,7 +294,7 @@ eleventyNavigation:
         asset: 'Using my speech to help not harm'
       },
       {
-        defect: 'Need to impress',
+        defect: 'Needing to impress',
         asset: 'Getting my self-worth from my Higher Power'
       },
       {
@@ -318,7 +318,7 @@ eleventyNavigation:
         asset: 'Letting go of the actions of others'
       },
       {
-        defect: 'Doubtful',
+        defect: 'Doubting',
         asset: 'Faithful'
       },
        {
@@ -326,16 +326,40 @@ eleventyNavigation:
         asset: 'Joyful'
       },
        {
-        defect: 'Breaking trust',
+        defect: 'Trust-breaking',
         asset: 'Trustworthy'
       },
        {
         defect: 'Fragile',
         asset: 'Robust'
       },
-      
+      {
+        defect: 'Attention-seeking',
+        asset: 'Grateful for God\'s attention'
+      },
+      {
+        defect: 'Self-righteous',
+        asset: 'Judging favorably'
+      },
+      {
+        defect: 'Vain',
+        asset: 'Modest'
+      },
+      {
+        defect: 'Emotionally entangled',
+        asset: 'Healthy detachment'
+      },
+      {
+        defect: 'Catastrophizing',
+        asset: 'Seeing reality clearly'
+      },
+      {
+        defect: 'Egotistical',
+        asset: 'Humble'
+      },
 
-    ].map(pair => { 
+
+    ].map(pair => {
       return {
         ...pair,
         id: encodeURIComponent(pair.defect.toLowerCase())
@@ -357,7 +381,7 @@ eleventyNavigation:
           AFFECTS_MY__OPTIONS,
 
           DEFECTS_AND_ASSET_PAIRS,
-          
+
           timestamp:  new Date(),
 
           who:  this.$persist(''),
@@ -376,7 +400,7 @@ eleventyNavigation:
 
           defectListIsExpanded: false,
           assetListIsExpanded: false,
-          
+
 
           toggleAffectsMy(id) {
             this.selectedAffectsMy[id] = this.selectedAffectsMy[id] ? false : true;
@@ -406,7 +430,7 @@ eleventyNavigation:
             this.assetListIsExpanded = !this.assetListIsExpanded;
           },
 
-        
+
 
           get selectedDefectAssetPairs() {
             return this.selectObjectKeysWithTruthyValues(this.selectedDefectAssetPairIds).
@@ -544,14 +568,14 @@ eleventyNavigation:
 
   </script>
 
-  <form 
+  <form
     id='app'
     x-data="app()"
     x-cloak
     @clipboard-success.window='setCopyTextSucceeded()'
     @clipboard-error.window='setCopyTextFailed()'
     class='bg-white  dark:bg-slate-800 shadow-lg p-4 sm:p-8 sm:pb-0 rounded-lg m-3 sm:m-4 max-w-xl'>
-<!-- 
+<!--
     <div class='inventory-type-picker'>
       <button type='button'>Resentment</button>
       <button type='button'>Fear</button>
@@ -575,7 +599,7 @@ eleventyNavigation:
     <div class='form-group'>
       <h2>3. Affects my...</h2>
       <p class='hint'>Select all that apply</p>
-      
+
       <template x-for="option in AFFECTS_MY__OPTIONS">
         <button type='button' class='card-option' @click='toggleAffectsMy(option.id)' :class='selectedAffectsMy[option.id] && "selected"'>
           <svg xmlns="http://www.w3.org/2000/svg" class='icon-md mr-1 transition-all text-blue-500 dark:text-blue-400' :class='selectedAffectsMy[option.id] ? "opacity-100" : "opacity-0"' fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><polyline points="172 104 113.3 160 84 132" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></circle></svg>
@@ -588,21 +612,21 @@ eleventyNavigation:
      <div class='form-group'>
       <h2 x-ref='defectsHeader' >4. My part</h2>
       <p class='hint'>Select as many character defects as you can!</p>
-      
-      
+
+
       <div x-collapse.min.90px x-show='defectListIsExpanded' class='mt-3 flex flex-wrap'>
         <template x-for="option in DEFECTS_AND_ASSET_PAIRS.sort(({defect: a},{defect: b}) => {
           if(a > b) return 1;
           if(a < b) return -1;
           return 0;
         })">
-          <button 
+          <button
             type='button'
             :id='"defect--" + option.id'
             class='defect-chip dark:bg-opacity-40'
             x-text='option.defect'
             :class='selectedDefectAssetPairIds[option.id] && "selected"'
-             @click='toggleDefectAssetPair(option.id)' 
+             @click='toggleDefectAssetPair(option.id)'
             >
           </button>
         </template>
@@ -616,9 +640,9 @@ eleventyNavigation:
         <div class='z-0 w-full absolute border-t border-slate-300 dark:border-slate-700' :class='{"mt-4": defectListIsExpanded}'></div>
 
         <button type='button' class='button pr-6 pl-3 z-10' :class='{"mt-4": !defectListIsExpanded}' @click='toggleDefectExpansionState()'>
-          
+
           <svg xmlns="http://www.w3.org/2000/svg" class='icon-sm mr-1 transform transition-all rotate-180 duration-700' :class='{"rotate-0": defectListIsExpanded}' fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><polyline points="48 160 128 80 208 160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline></svg>
-          
+
           <span class='whitespace-nowrap'>
             Show&nbsp;
             <span x-show='!defectListIsExpanded'>more</span>
@@ -628,28 +652,28 @@ eleventyNavigation:
         </button>
       </div>
 
-      
-      
+
+
 
     </div>
 
     <div class='form-group'>
       <h2 x-ref='assetsHeader'>5. Character Assets</h2>
       <p class='hint'>Select the opposites of your defects!</p>
-      
+
       <div class='mt-3 flex flex-wrap' x-collapse.min.90px x-show='assetListIsExpanded'>
        <template x-for="option in DEFECTS_AND_ASSET_PAIRS.sort(({asset: a},{asset: b}) => {
           if(a > b) return 1;
           if(a < b) return -1;
           return 0;
         })">
-          <button 
+          <button
             type='button'
             :id='"asset--" + option.id'
             class='defect-chip'
             x-text='option.asset'
             :class='selectedDefectAssetPairIds[option.id] && "selected"'
-             @click='toggleDefectAssetPair(option.id)' 
+             @click='toggleDefectAssetPair(option.id)'
             >
           </button>
         </template>
@@ -662,9 +686,9 @@ eleventyNavigation:
         <div class='z-0 w-full absolute border-t border-slate-300 dark:border-slate-700' :class='{"mt-4": assetListIsExpanded}'></div>
 
         <button type='button' class='button pr-6 pl-3 z-10' :class='{"mt-4": !assetListIsExpanded}' @click='toggleAssetExpansionState()'>
-          
+
           <svg xmlns="http://www.w3.org/2000/svg" class='icon-sm mr-1 transform transition-all rotate-180 duration-700' :class='{"rotate-0": assetListIsExpanded}' fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><polyline points="48 160 128 80 208 160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline></svg>
-          
+
           <span class='whitespace-nowrap'>
             Show&nbsp;
             <span x-show='!assetListIsExpanded'>more</span>
@@ -690,7 +714,7 @@ eleventyNavigation:
           <p class=''><span class='font-bold'>My Creator</span>, I'm now willing that you have all of me, good and bad.</p>
           <p>I pray that you now remove from me every single defect of character which stands in the way of my usefulness to you and my fellows. </p>
           <p class='font-bold mt-2'>In particular,</p>
-          
+
           <p class='mt-4'>Please take away my: </br>
           <span class='font-bold' x-text='defectString'>selfishness, dishonesty, fear, jealousy and judgementalism,</span>
           </p>
@@ -707,24 +731,24 @@ eleventyNavigation:
       <p class='hint'>
         Do you need to make an amends?
       </p>
-      
+
       <input x-model='hasAmends' id='no-amends' type='radio' name='amends-required' value='no' class='appearance-none opacity-0 absolute'>
       <input x-model='hasAmends' id='yes-amends' type='radio' name='amends-required' value='yes' class='appearance-none opacity-0 absolute'>
       <div class='flex'>
-        
-          
+
+
           <label for='no-amends' class='selection-panel mr-1' :class='hasAmends == "no" && "selected"'>No</label>
-        
+
 
           <label for='yes-amends' class='selection-panel ml-1' :class='hasAmends == "yes" && "selected"'>Yes</label>
-        
+
       </div>
 
       <div x-collapse x-show='hasAmends == "yes"' class='mt-2'>
         <label for='amend-details' class='block mb-1 font-semibold text-slate-700 dark:text-slate-300 mt-4'>Amends to make</label>
         <textarea x-autosize x-model='amendsDetails' name="amend-details" id="amend-details" cols="30" rows="1" class='w-full'></textarea>
       </div>
-     
+
     </div>
 
 
@@ -750,14 +774,14 @@ eleventyNavigation:
       <p class='hint'>
         Copy this inventory and paste it somewhere to save it for later, or clear it to start again.
       </p>
-     
+
       <button
         type="button"
         id='copy-to-clipboard-button'
         class='text-sm hidden transition-all bg-gradient-to-br  filter hover:brightness-110  text-white py-2 rounded-lg mt-4 font-semibold'
         :class='{
-          "from-green-600 to-green-700": !copyTextFailed && copyTextSucceeded, 
-          "from-red-600 to-red-700": copyTextFailed, 
+          "from-green-600 to-green-700": !copyTextFailed && copyTextSucceeded,
+          "from-red-600 to-red-700": copyTextFailed,
           "from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-800": !copyTextFailed && !copyTextSucceeded }'
         :data-clipboard-text='clipboardText'
         onclick='window.fathom && window.fathom.trackGoal("GKLXRGR7", 0);'>
