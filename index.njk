@@ -535,7 +535,12 @@ eleventyNavigation:
               navigator.share({
                 title: 'Step 10 Inventory',
                 text: this.clipboardText
-              })
+              }).then(() => {
+                console.log('Sharing success');
+              }).catch((error) => {
+                console.log('Share cancelled')
+                console.log(error)
+              });
             }
           },
 
