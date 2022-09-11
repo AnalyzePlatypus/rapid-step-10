@@ -13,8 +13,6 @@ eleventyNavigation:
       Your details are secure and never leave your browser.
     </p>
 
-
-
   <script>
     AFFECTS_MY__OPTIONS = [
       {
@@ -528,6 +526,19 @@ eleventyNavigation:
             this.resetButtonArmed = false;
           },
 
+          get shareButtonSupported() {
+            return navigator.share !== undefined;
+          },
+
+          shareButtonClicked() {
+            if (navigator.share) {
+              navigator.share({
+                title: 'Step 10 Inventory',
+                text: this.clipboardText
+              })
+            }
+          },
+
           resetForm() {
 
             this.timestamp = new Date(),
@@ -784,11 +795,21 @@ eleventyNavigation:
           "from-red-600 to-red-700": copyTextFailed,
           "from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-800": !copyTextFailed && !copyTextSucceeded }'
         :data-clipboard-text='clipboardText'
-        onclick='window.fathom && window.fathom.trackGoal("GKLXRGR7", 0);'>
+        onclick='window.fathom?.trackGoal("GKLXRGR7", 0);'>
         <span x-show='copyTextFailed'>Copy error</span>
         <span x-show='!copyTextFailed && copyTextSucceeded'>Copied!</span>
         <span x-show='!copyTextFailed && !copyTextSucceeded'>Copy to Clipboard</span>
       </button>
+
+    <button
+      x-show='shareButtonSupported'
+      type="button"
+      id='share-button'
+      class='text-sm transition-all bg-gradient-to-br  filter hover:brightness-110  text-white py-2 rounded-lg mt-4 font-semibold text-blue-900 bg-slate-100 dark:text-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 hover:bg-slate-200'
+      onclick='window.fathom?.trackGoal("D678PKNV", 0);'
+      @click='shareButtonClicked()'>
+      <span>Share</span>
+    </button>
 
        <button
           @click='resetButtonClicked()'
