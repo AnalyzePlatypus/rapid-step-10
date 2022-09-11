@@ -1,4 +1,5 @@
 # Rapid Step 10
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1bc9e509-3377-4d86-a20a-1109dac51203/deploy-status)](https://app.netlify.com/sites/rapid-step-10/deploys)
 
 Do a AA-style 10th Step Inventory in 3 minutes or less!
 Based on _Alcoholics Anonymous_ p. 84.
