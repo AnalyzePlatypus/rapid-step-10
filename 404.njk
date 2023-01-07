@@ -7,12 +7,18 @@ eleventyExcludeFromCollections: true
 ---
 
 <script>
+  // Tons of users are coming in to https://rapidstep10.com/rapidstep10.com
+  // and getting a 404. This will redirect them.
+  if(window.location.pathname == "/rapidstep10.com") {
+    window.location.assign("https://rapidstep10.com")
+  }
+
   document.addEventListener('alpine:init',  function () {
     Alpine.data('notFoundApp',  function () {
       return {
         url: "",
         get contactLink() {
-          return "mailto:michoel@hey.com?subject=Broken%20link%20report%20-%20" + this.url
+          return "mailto:michoel+rapidstep10@hey.com?subject=Broken%20link%20report%20-%20" + this.url
         }
       }
     });
