@@ -4,6 +4,7 @@
   "description": "Parked personal website",
   "scripts": {
     "build": "npx @11ty/eleventy && npx tailwindcss -i ./css/index.css -o _site/css/index.css",
+    "ci:build": "npx @11ty/eleventy && npx tailwindcss -i ./css/index.css -o _site/css/index.css",
     "bench": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
     "serve": "npx @11ty/eleventy --serve --watch",
     "tailwind": "npx tailwindcss -i ./css/index.css -o ./_site/css/index.css --watch",
