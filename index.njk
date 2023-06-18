@@ -816,9 +816,9 @@ eleventyNavigation:
         id='copy-to-clipboard-button'
         class='text-sm hidden transition-all bg-gradient-to-br  filter hover:brightness-110  text-white py-2 rounded-lg mt-4 font-semibold'
         :class='{
-          "from-green-600 to-green-700": !copyTextFailed && copyTextSucceeded,
-          "from-red-600 to-red-700": copyTextFailed,
-          "from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-800": !copyTextFailed && !copyTextSucceeded }'
+          "bg-green-600 from-green-600 to-green-700": !copyTextFailed && copyTextSucceeded,
+          "bg-red-600 from-red-600 to-red-700": copyTextFailed,
+          "bg-blue-600 from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-800": !copyTextFailed && !copyTextSucceeded }'
         :data-clipboard-text='clipboardText'
         onclick='window.fathom?.trackGoal("GKLXRGR7", 0);'>
         <span x-show='copyTextFailed'>Copy error</span>
