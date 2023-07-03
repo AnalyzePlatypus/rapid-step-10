@@ -4,9 +4,19 @@ const fs = require("fs");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
+const svgContents = require("eleventy-plugin-svg-contents");
 
-const i18n = require('eleventy-plugin-i18n');
+const {
+  jsonEmbed,
+  envEmbed,
+  fathomTrackClick,
+  link,
+} = require('razorux-eleventy-tools');
+
 const translations = require('./_data/i18n');
+const defectsAndAssets = require('./_data/defectsAndAssets');
+
+const isDefined = o => !(!o);
 
 module.exports = function(eleventyConfig) {
   // Copy the `img` and `css` folders to the output
@@ -15,14 +25,51 @@ module.exports = function(eleventyConfig) {
 
   // Add plugins
   eleventyConfig.addPlugin(pluginNavigation);
+  eleventyConfig.addPlugin(svgContents);
 
-  eleventyConfig.addPlugin(i18n, {
-    translations,
-    fallbackLocales: {
-      'de': 'en',
-      'he': 'en',
+  eleventyConfig.addFilter("i18n", function(key, lang) {
+    if(!lang) throw new Error(`[i18n] Language not provided (Got: key: ${key}, lang: ${lang})`);
+    const locale = lang.locale;
+    console.log(`i18n ${locale} - ${ key }`);
+    const results = translations[key.trim()];
+    if(!results) {
+      console.error(`[i18n] Unknown translation key "${key}"`)
+      return "❗ NO_TRANSLATION_FOUND";
     }
+    const translation = results[locale];
+    if(!translation) console.error(`[i18n] no translation found for key "${key}" in locale "${lang}"`)
+    return translation || "❗ NO_TRANSLATION_FOUND"
   });
+
+  eleventyConfig.addShortcode("embedDefectsAndAssets", function(lang) {
+    const content = defectsAndAssets.map(o => {
+
+      const defect = o[lang.defectKey];
+      const asset = o[lang.assetKey];
+      if(!defect || !asset) {
+        console.error(`[embedDefectsAndAssets] ❗ Invalid defect/asset pair (defect: "${defect}", asset: "${asset}", lang: "${lang.title}")`);
+        return;
+      } else {
+        console.log({
+          id: o.id,
+          defect,
+          asset,
+        })
+      }
+      return {
+        id: o.id,
+        defect,
+        asset,
+      }
+    }).filter(isDefined);
+    return JSON.stringify(content);
+  });
+
+  eleventyConfig.addNunjucksShortcode("json", jsonEmbed);
+  eleventyConfig.addNunjucksShortcode("env", envEmbed);
+  eleventyConfig.addNunjucksShortcode("fathomTrackClick", fathomTrackClick);
+  eleventyConfig.addPairedNunjucksShortcode("link", link({ fathomIds: {}}) );
+
 
   eleventyConfig.addFilter("readableDate", dateObj => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");

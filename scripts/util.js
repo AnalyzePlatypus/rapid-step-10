@@ -4,6 +4,12 @@ const Papa = require("papaparse");
 
 
 const pipe = (...fns) => x => fns.reduce((y, f) => f(y), x);
+const map = fn => arr => arr.map(fn);
+const objectToEntries = obj => Object.entries(obj);
+const entriesToObject = entries => Object.fromEntries(entries);
+const log = o => { console.log(o); return o; };
+
+
 const resolveFilePath = filepath => path.resolve(__dirname, filepath)
 
 const readTextFile = pipe(
@@ -69,3 +75,9 @@ exports.normalizeToken = normalizeToken;
 exports.writeCsvFile = writeCsvFile;
 exports.writeJsonFile = writeJsonFile;
 exports.ensureDirExists = ensureDirExists;
+
+exports.pipe = pipe;
+exports.map = map;
+exports.objectToEntries = objectToEntries;
+exports.entriesToObject = entriesToObject;
+exports.log = log;

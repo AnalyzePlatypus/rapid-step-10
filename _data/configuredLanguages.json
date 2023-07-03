@@ -1,0 +1,32 @@
+[
+  {
+    "title": "English",
+    "locale": "en",
+    "dir": "ltr",
+    "path": "/en",
+    "languageKey": "English",
+    "defectKey": "Defect_English",
+    "assetKey": "Asset_English",
+    "icon": "/node_modules/svg-country-flags/svg/gb.svg"
+  },
+  {
+    "title": "Deutsch",
+    "locale": "de",
+    "dir": "ltr",
+    "path": "/de",
+    "languageKey": "Deutsch",
+    "defectKey": "Defect_Deutsch",
+    "assetKey": "Asset_Deutsch",
+    "icon": "/node_modules/svg-country-flags/svg/de.svg"
+  },
+  {
+    "title": "Dansk",
+    "locale": "da-DK",
+    "dir": "ltr",
+    "path": "/da",
+    "languageKey": "Dansk",
+    "defectKey": "Defect_Dansk",
+    "assetKey": "Asset_Dansk",
+    "icon": "/node_modules/svg-country-flags/svg/dk.svg"
+  }
+]

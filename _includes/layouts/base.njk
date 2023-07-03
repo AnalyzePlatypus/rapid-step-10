@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ locale }}" dir="{{ dir }}" class='bg-blue-50 dark:bg-slate-900 h-full min-h-screen'>
+<html lang="{{ lang.locale }}" dir="{{ lang.dir }}" class='bg-blue-50 dark:bg-slate-900 h-full min-h-screen'>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,10 +57,10 @@
     <section class='h-full bg-blue-50 dark:bg-slate-900 dark:text-white flex flex-col items-center'>
       <div class='px-3 mb-2'>
 
-        <h1 class='pt-4 sm:pt-8 px-8 text-slate-900 dark:text-slate-100 text-center text-3xl sm:text-4xl font-semibold mb-2'>Rapid Step 10</h1>
-        <p class='text-slate-500 dark:text-slate-400 sm:text-xl text-center leading-tight mb-2'>A&nbsp;complete&nbsp;Step&nbsp;10 spot check inventory.<br>In&nbsp;under&nbsp;three&nbsp;minutes.
+        <h1 class='pt-4 sm:pt-8 px-8 text-slate-900 dark:text-slate-100 text-center text-3xl sm:text-4xl font-semibold mb-2'> {{ 'appTitle' | i18n(lang) }} </h1>
+        <p class='text-slate-500 dark:text-slate-400 sm:text-xl text-center leading-tight mb-2'>{{ 'appSlogan' | i18n(lang) }}
           <br>
-          <span class='text-sm'>(Based on AA p. 84)</span>
+          <span class='text-sm'> {{ 'basedOnAAPage84' | i18n(lang) }} </span>
         </p>
 
       </div>
