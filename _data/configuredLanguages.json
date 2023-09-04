@@ -28,5 +28,25 @@
     "defectKey": "Defect_Dansk",
     "assetKey": "Asset_Dansk",
     "icon": "/node_modules/svg-country-flags/svg/dk.svg"
+  },
+  {
+    "title": "Espanol",
+    "locale": "es",
+    "dir": "ltr",
+    "path": "/es",
+    "languageKey": "Espanol",
+    "defectKey": "Defect_Espanol",
+    "assetKey": "Asset_Espanol",
+    "icon": "/node_modules/svg-country-flags/svg/es.svg"
+  },
+  {
+    "title": "عربي",
+    "locale": "ar-SA",
+    "dir": "rtl",
+    "path": "/ar-SA",
+    "languageKey": "عربي",
+    "defectKey": "Defect_Arabic",
+    "assetKey": "Asset_Arabic",
+    "icon": "/node_modules/svg-country-flags/svg/sa.svg"
   }
 ]
