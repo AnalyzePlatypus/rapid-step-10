@@ -10,6 +10,26 @@
     "icon": "/node_modules/svg-country-flags/svg/gb.svg"
   },
   {
+    "title": "Espanol",
+    "locale": "es",
+    "dir": "ltr",
+    "path": "/es",
+    "languageKey": "Espanol",
+    "defectKey": "Defect_Espanol",
+    "assetKey": "Asset_Espanol",
+    "icon": "/node_modules/svg-country-flags/svg/es.svg"
+  },
+  {
+    "title": "Français",
+    "locale": "fr",
+    "dir": "ltr",
+    "path": "/fr",
+    "languageKey": "Francais",
+    "defectKey": "Defect_Francais",
+    "assetKey": "Asset_Francais",
+    "icon": "/node_modules/svg-country-flags/svg/fr.svg"
+  },
+  {
     "title": "Deutsch",
     "locale": "de",
     "dir": "ltr",
@@ -30,20 +50,10 @@
     "icon": "/node_modules/svg-country-flags/svg/dk.svg"
   },
   {
-    "title": "Espanol",
-    "locale": "es",
-    "dir": "ltr",
-    "path": "/es",
-    "languageKey": "Espanol",
-    "defectKey": "Defect_Espanol",
-    "assetKey": "Asset_Espanol",
-    "icon": "/node_modules/svg-country-flags/svg/es.svg"
-  },
-  {
     "title": "عربي",
     "locale": "ar-SA",
     "dir": "rtl",
-    "path": "/ar-SA",
+    "path": "/ar",
     "languageKey": "عربي",
     "defectKey": "Defect_Arabic",
     "assetKey": "Asset_Arabic",
