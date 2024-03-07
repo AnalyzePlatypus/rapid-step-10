@@ -572,7 +572,7 @@ ${this.assetString}$NL$NL
     {% for l in configuredLanguages %}
       <a href='{{ l.path }}' class='font-semibold flex items-center text-slate-700 hover:text-slate-900 hover:bg-slate-200/80   dark:text-slate-300 dark:hover:text-slate-100 dark:hover:bg-slate-800/80  rounded-lg px-3 py-3 cursor-pointer'>
         <div class='w-6 h-6 rounded-full overflow-hidden relative mx-2'>
-          {{ l.icon | svgContents('h-6 block object-cover absolute -left-[50%]') | safe }}
+          {{ l.icon | svgContents('h-6 block object-cover -translate-x-[16%]') | safe }}
         </div>
         {{ l.title }}
       </a>

@@ -24,7 +24,7 @@ Based on _Alcoholics Anonymous_ p. 84.
 - [x] No-JS banner
 - [x] Automatic asset download retries (powered by [assets-retry](https://www.npmjs.com/package/assets-retry))
 - [ ] Offline support via Service Worker?
-- [ ] Sticky "Show More" and "Show Less" buttons by character assets/defects
+- [x] Sticky "Show More" and "Show Less" buttons by character assets/defects
 
 
 ## Thank you

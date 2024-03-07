@@ -40,6 +40,16 @@
     "icon": "/node_modules/svg-country-flags/svg/de.svg"
   },
   {
+    "title": "Italiano",
+    "locale": "it",
+    "dir": "ltr",
+    "path": "/it",
+    "languageKey": "Italiano",
+    "defectKey": "Defect_Italiano",
+    "assetKey": "Asset_Italiano",
+    "icon": "/node_modules/svg-country-flags/svg/it.svg"
+  },
+  {
     "title": "Dansk",
     "locale": "da-DK",
     "dir": "ltr",
