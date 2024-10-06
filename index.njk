@@ -568,7 +568,7 @@ ${this.assetString}$NL$NL
   <h2 class='text-slate-600 dark:text-slate-100 text-center font-bold'>
     {{ 'languagePickerPrefix' | i18n(lang) }}
   </h2>
-  <div class='flex flex-wrap gap-2 mt-2'>
+  <div class='grid grid-cols-4 flex-wrap gap-2 mt-2'>
     {% for l in configuredLanguages %}
       <a href='{{ l.path }}' class='font-semibold flex items-center text-slate-700 hover:text-slate-900 hover:bg-slate-200/80   dark:text-slate-300 dark:hover:text-slate-100 dark:hover:bg-slate-800/80  rounded-lg px-3 py-3 cursor-pointer'>
         <div class='w-6 h-6 rounded-full overflow-hidden relative mx-2'>

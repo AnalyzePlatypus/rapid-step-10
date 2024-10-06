@@ -60,6 +60,16 @@
     "icon": "/node_modules/svg-country-flags/svg/dk.svg"
   },
   {
+    "title": "Finnish",
+    "locale": "fi",
+    "dir": "ltr",
+    "path": "/fi",
+    "languageKey": "Finnish",
+    "defectKey": "Defect_Finnish",
+    "assetKey": "Asset_Finnish",
+    "icon": "/node_modules/svg-country-flags/svg/fi.svg"
+  },
+  {
     "title": "عربي",
     "locale": "ar-SA",
     "dir": "rtl",
@@ -68,5 +78,15 @@
     "defectKey": "Defect_Arabic",
     "assetKey": "Asset_Arabic",
     "icon": "/node_modules/svg-country-flags/svg/sa.svg"
+  },
+  {
+    "title": "עברית",
+    "locale": "il",
+    "dir": "rtl",
+    "path": "/il",
+    "languageKey": "Hebrew",
+    "defectKey": "Defect_Hebrew",
+    "assetKey": "Asset_Hebrew",
+    "icon": "/node_modules/svg-country-flags/svg/il.svg"
   }
 ]
