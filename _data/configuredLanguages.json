@@ -70,6 +70,16 @@
     "icon": "/node_modules/svg-country-flags/svg/fi.svg"
   },
   {
+    "title": "Hungarian",
+    "locale": "hu",
+    "dir": "ltr",
+    "path": "/hu",
+    "languageKey": "Hungarian",
+    "defectKey": "Defect_Hungarian",
+    "assetKey": "Asset_Hungarian",
+    "icon": "/node_modules/svg-country-flags/svg/hu.svg"
+  },
+  {
     "title": "عربي",
     "locale": "ar-SA",
     "dir": "rtl",
