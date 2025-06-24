@@ -463,7 +463,7 @@ ${this.assetString}$NL$NL
 
       <input x-model='hasAmends' id='no-amends' type='radio' name='amends-required' value='no' class='appearance-none opacity-0 absolute'>
       <input x-model='hasAmends' id='yes-amends' type='radio' name='amends-required' value='yes' class='appearance-none opacity-0 absolute'>
-      <div class='flex'>
+      <div class='flex gap-3'>
         <label for='no-amends' class='selection-panel mr-1' :class='hasAmends == "no" && "selected"'>
           {{ 'buttonLabelNo' | i18n(lang) }}
         </label>
