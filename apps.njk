@@ -20,6 +20,21 @@ description: "Download our apps for iOS and Android to write inventories on the 
   (`npm run download-badges`). The Google PNGs are cropped to their visible edges at download time,
   so both badges can share one height here and line up exactly.
 #}
+<script>
+  // Send iOS/Android visitors straight to their store; everyone else sees the page below.
+  // `location.replace` keeps this page out of history, so Back from the store doesn't bounce here again.
+  // Add ?noredirect to view the page on a phone.
+  (function () {
+    if (new URLSearchParams(location.search).has('noredirect')) return;
+    var ua = navigator.userAgent || '';
+    var iOS = /iPad|iPhone|iPod/.test(ua) ||
+              (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1); // iPadOS reports itself as a Mac
+    var android = /Android/i.test(ua);
+    // Android first: the iPadOS check below would also match an Android UA spoofed on a Mac
+    if (android) location.replace('{{ metadata.apps.android.url }}');
+    else if (iOS) location.replace('{{ metadata.apps.ios.url }}');
+  })();
+</script>
 <div class='bg-white dark:bg-slate-800 shadow-lg p-4 sm:p-8 rounded-lg m-3 sm:m-4 w-[calc(100%-1.5rem)] max-w-xl'>
 
   <div class='text-center'>

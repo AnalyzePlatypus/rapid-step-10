@@ -67,6 +67,7 @@ Only these. Nothing in them identifies the user or carries inventory content.
 - [`apps.njk`](apps.njk) builds the native-app landing page at `/<lang.path>/apps/`, the same way.
   Its store badges are the official localized ones, self-hosted in `img/badges/` (`npm run
   download-badges`). The app IDs and store URLs are in [`_data/metadata.json`](_data/metadata.json) under `apps`.
+  On iOS and Android it redirects straight to the matching store; add `?noredirect` to view it on a phone.
 - Every page suggests the native apps: iOS through the `apple-itunes-app` Smart App Banner meta tag
   in `base.njk`, and Android through `related_applications` in [`public/manifest.json`](public/manifest.json).
 - RTL languages (Arabic, Hebrew) set `dir: "rtl"` in their language config.
