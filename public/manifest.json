@@ -21,11 +21,28 @@
   "scope": "/",
   "theme_color": "#2563eb",
   "launch_handler": {
-      "client_mode": ["navigate-existing", "auto"]
+    "client_mode": [
+      "navigate-existing",
+      "auto"
+    ]
   },
   "dir": "auto",
   "lang": "en-US",
   "orientation": "portrait-primary",
-  "categories": ["lifestyle", "utilities"],
-  "prefer_related_applications": false
+  "categories": [
+    "lifestyle",
+    "utilities"
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.dovidcohen.rapidstep10",
+      "id": "com.dovidcohen.rapidstep10"
+    },
+    {
+      "platform": "itunes",
+      "url": "https://apps.apple.com/app/id6785637337"
+    }
+  ],
+  "prefer_related_applications": true
 }

@@ -558,9 +558,14 @@ ${this.assetString}$NL$NL
     </div>
   <form>
 
-<a href='mailto:michoel+rapidstep10@hey.com' class='pt-4 font-bold underline text-slate-700 dark:text-slate-200 dark:hover:text-slate-300 hover:text-slate-900 pb-4 block text-center text-sm'>
-  {{ 'buttonLabelSendFeedback' | i18n(lang) }}
-</a>
+<div class='pt-4 pb-4 flex justify-center items-center gap-2 text-sm font-bold text-slate-700 dark:text-slate-200'>
+  <a href='mailto:michoel+rapidstep10@hey.com' class='underline dark:hover:text-slate-300 hover:text-slate-900'>
+    {{ 'buttonLabelSendFeedback' | i18n(lang) }}
+  </a>
+  <span aria-hidden='true' class='text-slate-400 dark:text-slate-500'>•</span>
+  {# TODO: English-only, like the apps page. Move to the Google Sheet with the rest of its copy. #}
+  <a href='{{ lang.path }}/apps/' class='underline dark:hover:text-slate-300 hover:text-slate-900'>Apps</a>
+</div>
 </form>
 
 

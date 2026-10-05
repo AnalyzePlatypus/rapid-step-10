@@ -64,6 +64,11 @@ Only these. Nothing in them identifies the user or carries inventory content.
   `{{ 'appTitle' | i18n(lang) }}`. A missing key renders `❗ NO_TRANSLATION_FOUND`.
 - The defect/asset pairs come from [`_data/defectsAndAssets.json`](_data/defectsAndAssets.json),
   which the `embedDefectsAndAssets` shortcode embeds into each page as JSON.
+- [`apps.njk`](apps.njk) builds the native-app landing page at `/<lang.path>/apps/`, the same way.
+  Its store badges are the official localized ones, self-hosted in `img/badges/` (`npm run
+  download-badges`). The app IDs and store URLs are in [`_data/metadata.json`](_data/metadata.json) under `apps`.
+- Every page suggests the native apps: iOS through the `apple-itunes-app` Smart App Banner meta tag
+  in `base.njk`, and Android through `related_applications` in [`public/manifest.json`](public/manifest.json).
 - RTL languages (Arabic, Hebrew) set `dir: "rtl"` in their language config.
 - `public/` is copied as-is to the site root.
 
@@ -90,6 +95,7 @@ npm run serve         # dev server with live reload (Eleventy only)
 npm run tailwind      # in a second terminal: rebuild CSS on change
 npm run build         # full production build into _site/
 npm run refresh-data  # pull the Google Sheet into _data/ (needs .env)
+npm run download-badges  # re-download the localized App Store / Google Play badges
 ```
 
 There are no tests or linters.

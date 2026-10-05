@@ -7,7 +7,9 @@
     "languageKey": "English",
     "defectKey": "Defect_English",
     "assetKey": "Asset_English",
-    "icon": "/node_modules/svg-country-flags/svg/gb.svg"
+    "icon": "/node_modules/svg-country-flags/svg/gb.svg",
+    "appStoreBadgeLocale": "en-us",
+    "googlePlayBadgeLocale": "en"
   },
   {
     "title": "Espanol",
@@ -17,7 +19,9 @@
     "languageKey": "Espanol",
     "defectKey": "Defect_Espanol",
     "assetKey": "Asset_Espanol",
-    "icon": "/node_modules/svg-country-flags/svg/es.svg"
+    "icon": "/node_modules/svg-country-flags/svg/es.svg",
+    "appStoreBadgeLocale": "es-es",
+    "googlePlayBadgeLocale": "es"
   },
   {
     "title": "Français",
@@ -27,7 +31,9 @@
     "languageKey": "Francais",
     "defectKey": "Defect_Francais",
     "assetKey": "Asset_Francais",
-    "icon": "/node_modules/svg-country-flags/svg/fr.svg"
+    "icon": "/node_modules/svg-country-flags/svg/fr.svg",
+    "appStoreBadgeLocale": "fr-fr",
+    "googlePlayBadgeLocale": "fr"
   },
   {
     "title": "Deutsch",
@@ -37,7 +43,9 @@
     "languageKey": "Deutsch",
     "defectKey": "Defect_Deutsch",
     "assetKey": "Asset_Deutsch",
-    "icon": "/node_modules/svg-country-flags/svg/de.svg"
+    "icon": "/node_modules/svg-country-flags/svg/de.svg",
+    "appStoreBadgeLocale": "de-de",
+    "googlePlayBadgeLocale": "de"
   },
   {
     "title": "Italiano",
@@ -47,7 +55,9 @@
     "languageKey": "Italiano",
     "defectKey": "Defect_Italiano",
     "assetKey": "Asset_Italiano",
-    "icon": "/node_modules/svg-country-flags/svg/it.svg"
+    "icon": "/node_modules/svg-country-flags/svg/it.svg",
+    "appStoreBadgeLocale": "it-it",
+    "googlePlayBadgeLocale": "it"
   },
   {
     "title": "Dansk",
@@ -57,7 +67,9 @@
     "languageKey": "Dansk",
     "defectKey": "Defect_Dansk",
     "assetKey": "Asset_Dansk",
-    "icon": "/node_modules/svg-country-flags/svg/dk.svg"
+    "icon": "/node_modules/svg-country-flags/svg/dk.svg",
+    "appStoreBadgeLocale": "da-dk",
+    "googlePlayBadgeLocale": "da"
   },
   {
     "title": "Finnish",
@@ -67,7 +79,9 @@
     "languageKey": "Finnish",
     "defectKey": "Defect_Finnish",
     "assetKey": "Asset_Finnish",
-    "icon": "/node_modules/svg-country-flags/svg/fi.svg"
+    "icon": "/node_modules/svg-country-flags/svg/fi.svg",
+    "appStoreBadgeLocale": "fi-fi",
+    "googlePlayBadgeLocale": "fi"
   },
   {
     "title": "Hungarian",
@@ -77,7 +91,9 @@
     "languageKey": "Hungarian",
     "defectKey": "Defect_Hungarian",
     "assetKey": "Asset_Hungarian",
-    "icon": "/node_modules/svg-country-flags/svg/hu.svg"
+    "icon": "/node_modules/svg-country-flags/svg/hu.svg",
+    "appStoreBadgeLocale": "hu-hu",
+    "googlePlayBadgeLocale": "hu"
   },
   {
     "title": "عربي",
@@ -87,7 +103,9 @@
     "languageKey": "عربي",
     "defectKey": "Defect_Arabic",
     "assetKey": "Asset_Arabic",
-    "icon": "/node_modules/svg-country-flags/svg/sa.svg"
+    "icon": "/node_modules/svg-country-flags/svg/sa.svg",
+    "appStoreBadgeLocale": "ar-ar",
+    "googlePlayBadgeLocale": "ar"
   },
   {
     "title": "עברית",
@@ -97,6 +115,8 @@
     "languageKey": "Hebrew",
     "defectKey": "Defect_Hebrew",
     "assetKey": "Asset_Hebrew",
-    "icon": "/node_modules/svg-country-flags/svg/il.svg"
+    "icon": "/node_modules/svg-country-flags/svg/il.svg",
+    "appStoreBadgeLocale": "he-il",
+    "googlePlayBadgeLocale": "iw"
   }
 ]

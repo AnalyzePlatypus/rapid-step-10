@@ -16,6 +16,9 @@
 
     <link rel="manifest" href="/manifest.json">
 
+    <!-- Suggest the native apps. iOS: Safari Smart App Banner. Android: Chrome reads `related_applications` in manifest.json -->
+    <meta name="apple-itunes-app" content="app-id={{ metadata.apps.ios.id }}">
+
 
     {% include 'head/seo.njk' %}
     {% include 'head/i18n.njk' %}
@@ -58,7 +61,10 @@
     <section class='h-full bg-blue-50 dark:bg-slate-900 dark:text-white flex flex-col items-center'>
       <div class='px-3 mb-2'>
 
-        <h1 class='pt-4 sm:pt-8 px-8 text-slate-900 dark:text-slate-100 text-center text-3xl sm:text-4xl font-semibold mb-2'> {{ 'appTitle' | i18n(lang) }} </h1>
+        <h1 class='pt-4 sm:pt-8 px-8 text-slate-900 dark:text-slate-100 text-3xl sm:text-4xl font-semibold mb-2 flex items-center justify-center gap-2 sm:gap-3'>
+          <img src='/apple-touch-icon.png' alt='' width='40' height='40' class='w-8 h-8 sm:w-10 sm:h-10 rounded-[22%] shadow-sm'>
+          {{ 'appTitle' | i18n(lang) }}
+        </h1>
         <p class='text-slate-500 dark:text-slate-400 sm:text-xl text-center leading-tight mb-2'>{{ 'appSlogan' | i18n(lang) }}
           <br>
           <span class='text-sm'> {{ 'basedOnAAPage84' | i18n(lang) }} </span>
