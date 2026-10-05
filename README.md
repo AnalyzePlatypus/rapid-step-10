@@ -12,6 +12,24 @@ Based on _Alcoholics Anonymous_ p. 84.
 * 🎉 Celebrate with confetti!
 
 
+## Development
+
+```bash
+npm install
+npm run serve         # dev server
+npm run tailwind      # CSS watcher (second terminal)
+npm run refresh-data  # pull content from the Google Sheet (needs .env)
+```
+
+Every push to `master` deploys to production on Netlify.
+
+All text content (translations and the defect/asset list) is edited in a Google Sheet, not in this repo.
+See [`docs/google-sheet.md`](docs/google-sheet.md) and [`docs/adding-a-language.md`](docs/adding-a-language.md).
+Contributor and agent guidelines are in [`AGENTS.md`](AGENTS.md).
+
+There are companion iOS and Android apps. They are fully standalone, with no accounts and no sync.
+
+
 ## Roadmap
 
 - [x] Ask to confirm before clearing form
