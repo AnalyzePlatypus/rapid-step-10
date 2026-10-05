@@ -21,7 +21,7 @@ npm run tailwind      # CSS watcher (second terminal)
 npm run refresh-data  # pull content from the Google Sheet (needs .env)
 ```
 
-Every push to `master` deploys to production on Netlify.
+Live at [rapidstep10.com](https://rapidstep10.com). Every push to `master` deploys to production on Netlify.
 
 All text content (translations and the defect/asset list) is edited in a Google Sheet, not in this repo.
 See [`docs/google-sheet.md`](docs/google-sheet.md) and [`docs/adding-a-language.md`](docs/adding-a-language.md).

@@ -96,6 +96,7 @@ There are no tests or linters.
 
 ## Deployment
 
+Production is **[rapidstep10.com](https://rapidstep10.com)**, hosted on Netlify (site `rapid-step-10`).
 Netlify builds and deploys **every push to `master` straight to production** through its built-in
 GitHub integration ([`netlify.toml`](netlify.toml): `npm run build`, publish `_site`). There are no
 deploy previews and no staging site, so treat pushing to `master` as releasing.
