@@ -27,17 +27,6 @@
     {% include 'head/fathom.njk' %}
     {% include 'head/assets-retry.njk' %}
 
-    <script>
-      // Set a UTM tag on the page
-      if ('URLSearchParams' in window) {
-          var searchParams = new URLSearchParams(window.location.search)
-          searchParams.set("utm_source", "address_bar");
-          var newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
-          history.replaceState(null, '', newRelativePathQuery);
-      }
-    </script>
-
-
     <style>
       /* Hide Alpine templates until library loads and boots up */
       [x-cloak] {
@@ -61,9 +50,12 @@
     <section class='h-full bg-blue-50 dark:bg-slate-900 dark:text-white flex flex-col items-center'>
       <div class='px-3 mb-2'>
 
-        <h1 class='pt-4 sm:pt-8 px-8 text-slate-900 dark:text-slate-100 text-3xl sm:text-4xl font-semibold mb-2 flex items-center justify-center gap-2 sm:gap-3'>
-          <img src='/apple-touch-icon.png' alt='' width='40' height='40' class='w-8 h-8 sm:w-10 sm:h-10 rounded-[22%] shadow-sm'>
-          {{ 'appTitle' | i18n(lang) }}
+        <h1 class='pt-4 sm:pt-8 px-8 text-slate-900 dark:text-slate-100 text-3xl sm:text-4xl font-semibold mb-2 flex justify-center'>
+          {# Links to the current language's homepage. `lang.path` is missing on pages without a language object (e.g. 404), so fall back to / #}
+          <a href='{{ lang.path or "/" }}' class='flex items-center gap-2 sm:gap-3 hover:opacity-80 transition-opacity'>
+            <img src='/apple-touch-icon.png' alt='' width='40' height='40' class='w-8 h-8 sm:w-10 sm:h-10 rounded-[22%] shadow-sm'>
+            {{ 'appTitle' | i18n(lang) }}
+          </a>
         </h1>
         <p class='text-slate-500 dark:text-slate-400 sm:text-xl text-center leading-tight mb-2'>{{ 'appSlogan' | i18n(lang) }}
           <br>
