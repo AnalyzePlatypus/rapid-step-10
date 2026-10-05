@@ -1,0 +1,44 @@
+# .fizzy-workflows.yaml — per-repo config for the fizzy-workflows skill.
+# Distinct from .fizzy.yaml (the config the `fizzy` CLI itself reads).
+
+account: "6106964"
+cli_profile: "claude_razorux"
+
+boards:
+  rapidstep10: { id: "03gg2rdiz28yc1mmbgsqv8qcv", name: "🔟 RapidStep10" }
+  feedback:    { id: "03fzr38mqisxa7iv2yt3kheru", name: "📥 Agent Feedback" }
+
+columns:
+  working_on:      "Working on It"
+  awaiting_review: "Awaiting Review"
+  done:            "Done"
+
+column_ids:
+  rapidstep10:
+    "Not Now":         "not-now"
+    "Maybe?":          "maybe"
+    "Working on It":   "03gg2req0r61qqofu4f9btttp"
+    "Awaiting Review": "03gg2rfp00ioh8jk8dipf5hk0"
+    "Done":            "done"
+  feedback:
+    "Not Now": "not-now"
+    "Maybe?":  "maybe"
+    "Read":    "03fzr4z9grgf64l9a7k3qrx55"
+    "Done":    "done"
+
+users:
+  - { name: "Michoel Samuels (FordMed)", id: "03g1axnc8cdcvn1ih5k630hoo", git_name: "Michoel Samuels" }
+  - { name: "Michoel Samuels", id: "03f5fyop2w4ablw7mi6ja9thj" }
+  - { name: "Michoel's Claude", id: "03gix9eto0fd3hg8kkfm0hr0s" }
+  - { name: "Codex", id: "03fkdtjgzgebtc9ad2knevax3" }
+
+card_sizing:
+  max_changed_lines: 400
+
+survey:
+  enabled: true
+  board: feedback
+
+commit:
+  repo_commit_url_template: "https://github.com/AnalyzePlatypus/rapid-step-10/commit/{hash}"
+  comment_template: "Completed in <a href='{commit_url}'>{short_hash}</a>"
