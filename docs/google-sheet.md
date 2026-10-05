@@ -3,13 +3,13 @@
 All of RapidStep10's text content (UI strings in every language, and the defect/asset list) is
 edited in one Google Sheet. The same sheet supplies the content of the iOS and Android apps.
 
-**Sheet:** TODO: add link
+**Sheet:** [RapidStep10 Translation](https://docs.google.com/spreadsheets/d/1vZnXXewDedgKmHgf8yi2bz03FTf7Csz0SXY64M_v8Ec)
 
 ## Tabs
 
 The refresh script reads the tabs **by position**, not by name. Don't reorder them.
 
-### Tab 1: UI translations → `_data/i18n.json`
+### Tab 1: "App Text" → `_data/i18n.json`
 
 One row per UI string.
 
@@ -22,7 +22,7 @@ One row per UI string.
 The output is keyed `translationKey → locale → string`, using only the languages listed in
 `configuredLanguages.json`.
 
-### Tab 2: Defects & assets → `_data/defectsAndAssets.json`
+### Tab 2: "Defect & Assets" → `_data/defectsAndAssets.json`
 
 One row per defect/asset pair (a character defect and its opposite asset, e.g. Anger / Calm).
 
