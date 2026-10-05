@@ -41,5 +41,11 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.1"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "overrides": {
+    "sharp": "^0.34.0"
   }
 }

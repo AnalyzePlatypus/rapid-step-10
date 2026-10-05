@@ -15,7 +15,7 @@ Based on _Alcoholics Anonymous_ p. 84.
 ## Development
 
 ```bash
-npm install
+npm install           # Node 24 (mise); if Homebrew vips is installed, prefix SHARP_IGNORE_GLOBAL_LIBVIPS=1
 npm run serve         # dev server
 npm run tailwind      # CSS watcher (second terminal)
 npm run refresh-data  # pull content from the Google Sheet (needs .env)

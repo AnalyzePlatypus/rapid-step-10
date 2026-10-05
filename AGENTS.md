@@ -42,8 +42,17 @@ Only these. Nothing in them identifies the user or carries inventory content.
   Clipboard.js, canvas-confetti and assets-retry. These all load from CDNs
   ([`_includes/head/javascript-libs.njk`](_includes/head/javascript-libs.njk)), so there is no JS
   bundler.
-- Node via [mise](https://mise.jdx.dev) ([`mise.toml`](mise.toml)). The intended version is
-  **latest**. The `.nvmrc` pin to 18.18.0 is stale.
+- **Node 24.** It's pinned in both [`mise.toml`](mise.toml) (local) and [`.nvmrc`](.nvmrc), which
+  is what Netlify reads. Change them together.
+- **`sharp` override.** `razorux-eleventy-tools` loads `@11ty/eleventy-img` 2, which depends on an
+  old `sharp` that won't compile on Node 24. `package.json` `overrides` forces `sharp` ^0.34, which
+  ships prebuilt binaries. The site doesn't use any image helpers.
+  - If Homebrew `vips` is installed on your machine, `sharp` tries to build against it and fails.
+    Install with `SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install` instead.
+- `package-lock.json` is gitignored, so Netlify resolves dependencies fresh on every build.
+- Markdown files outside the site, such as `README.md`, `AGENTS.md` and `docs/`, must be listed in
+  [`.eleventyignore`](.eleventyignore). Otherwise Eleventy renders them as pages and publishes
+  them.
 
 ## How the site is built
 
