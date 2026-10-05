@@ -2,7 +2,8 @@
 <script src="//js.honeybadger.io/v3.2/honeybadger.min.js" type="text/javascript"></script>
 
 <script type="text/javascript">
-  Honeybadger.configure({
+  // The script above may be blocked (Safari tracking protection, content blockers), so don't assume it loaded
+  window.Honeybadger?.configure({
     apiKey: 'hbp_vB747sDA7gxOqDRINd6YpAYdf11L470FN11m',
     environment: 'production'
   });
