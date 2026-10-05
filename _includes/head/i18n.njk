@@ -1,6 +1,7 @@
 <!-- Localization Markup for SEO -->
 <meta http-equiv="content-language" content="{{ lang.locale }}">
 
+{% if not skipAlternateLinks %}
 <link rel="canonical" href="{{ metadata.url }}{{ lang.path }}{{ pathSuffix }}">
 
 <link rel="alternate" hreflang="x-default" href="{{ metadata.url }}/en{{ pathSuffix }}">
@@ -8,4 +9,4 @@
 {% for l in configuredLanguages %}
   <link rel="alternate" hreflang="{{ l.locale }}" href="{{ metadata.url }}{{ l.path }}{{ pathSuffix }}">
 {% endfor %}
-
+{% endif %}

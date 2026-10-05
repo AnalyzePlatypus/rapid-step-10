@@ -4,7 +4,8 @@ description: We couldn't find that page. Send us an error report, or return to o
 layout: layouts/home.njk
 permalink: 404.html
 eleventyExcludeFromCollections: true
-lang: en
+# No canonical/hreflang links: a 404 isn't the English homepage
+skipAlternateLinks: true
 ---
 
 <script>
